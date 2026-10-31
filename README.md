@@ -1,1 +1,3 @@
-# sasareach-site
+# ササリーチ（SasaReach）
+
+https://sasareach.com/ のLPです。
