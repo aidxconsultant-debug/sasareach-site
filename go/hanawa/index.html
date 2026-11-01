@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>塙不動産</title>
+<style>body{margin:0;font-family:system-ui,sans-serif;color:#333;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:20px}a{color:#1a73e8}</style>
+</head>
+<body>
+<p>塙不動産のページへ移動しています…<br><a id="go" href="https://www.hanawa-realestate.co.jp/">移動しない場合はこちら</a></p>
+<script>
+  // ===== 設定 =====
+  var DEST = "https://www.hanawa-realestate.co.jp/";   // 移動先（塙不動産のHP）
+  var KEY = "hanawa";                             // 記録先のクライアント（Apps Script の CLIENTS と同じ名前）
+  var TRACK = "https://script.google.com/macros/s/AKfycbykP0kkEzEQDTrx3H7BA89A4myKDkgmf-5qVeAWlGOGl7takO6sHfnr7_Io4A9Lh9U2/exec";
+  // ===============
+  var c = (new URLSearchParams(location.search).get("c") || "").replace(/[^0-9]/g, "").slice(0, 10);
+  var url = DEST + "?utm_source=sasareach&utm_medium=form&utm_campaign=koto" + (c ? "&utm_content=" + c : "");
+  document.getElementById("go").href = url;
+  var moved = false;
+  function go() { if (!moved) { moved = true; location.replace(url); } }
+  if (c) {
+    try {
+      fetch(TRACK, { method: "POST", body: JSON.stringify({ action: "open", c: c, k: KEY }), credentials: "omit", keepalive: true })
+        .then(go, go);
+    } catch (e) {}
+    setTimeout(go, 1500);   // 記録が遅くても、1.5秒で移動する
+  } else {
+    go();
+  }
+</script>
+</body>
+</html>
