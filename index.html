@@ -101,6 +101,24 @@ h2{margin:0 0 28px;font-size:clamp(24px,4.6vw,36px);line-height:1.45;font-weight
 .res b small{font-size:.5em}
 .res span{font-size:14px;font-weight:700}
 .res.hot{background:var(--red);color:#fff}
+/* modes */
+.modes{display:grid;gap:18px}
+@media(min-width:860px){.modes{grid-template-columns:1fr 1fr;align-items:start}}
+.mode{background:#fff;border:3px solid var(--ink);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.mode.main{box-shadow:0 6px 0 var(--ink)}
+.tag{align-self:flex-start;font-size:13px;font-weight:900;padding:4px 12px;border-radius:999px;border:2px solid var(--ink)}
+.tag.auto{background:var(--red);color:#fff}
+.tag.check{background:var(--yellow)}
+.mode h3{margin:0;font-size:clamp(20px,3.6vw,24px);line-height:1.45;font-weight:900}
+.mode p{margin:0;font-size:16px;color:var(--sub)}
+.mode .small{font-size:14px}
+.pc{background:var(--cream);border-radius:14px;padding:10px}
+.pc svg{width:100%;height:auto;display:block}
+.route{margin-top:22px;display:grid;gap:10px;align-items:center}
+@media(min-width:760px){.route{grid-template-columns:1fr auto 1fr auto 1fr}}
+.route div{background:var(--beige);border-radius:14px;padding:14px 16px;font-weight:700;text-align:center}
+.route div.goal{background:var(--yellow);border:3px solid var(--ink)}
+.route span{text-align:center;font-weight:900;color:var(--label)}
 /* screenshot */
 .shot{border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff}
 .shot-ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#555;font-weight:700;border:3px dashed #B9AE9C;border-radius:16px;background:#fff;padding:20px}
@@ -216,14 +234,86 @@ footer a{color:#fff}
   </div>
 </section>
 
-<section aria-labelledby="shot-h">
+<section aria-labelledby="mode-h">
   <div class="wrap">
-    <p class="label">実際の画面</p>
-    <h2 id="shot-h">フォームを見つけて、名前・メール・本文まで自動で入力</h2>
-    <figure class="shot" style="margin:0">
-      <img src="img/form-demo.webp" width="1255" height="599" alt="ササリーチが問い合わせフォームに、名前・メール・会社名などを自動で入力した画面" loading="lazy">
-    </figure>
-    <p class="note" style="margin:10px 0 0">実際の送信テストの画面です（会社名・名前などはぼかしています）。右下のパネルで、送る・飛ばすなどを選べます。</p>
+    <p class="label">2つの送り方</p>
+    <h2 id="mode-h">まず全自動で送り、<span class="mark">残りを人の目で仕上げます</span></h2>
+    <div class="modes">
+      <div class="mode main">
+        <span class="tag auto">① 全自動モード（メイン）</span>
+        <h3>1台のPCで、AIが3台同時に働きます</h3>
+        <div class="pc"><svg viewBox="0 0 600 300" role="img" aria-label="1台のPCの中で、パンダのAIが3台同時に、それぞれ別の会社のフォームに入力して送信しているイメージ">
+  <rect x="20" y="10" width="560" height="250" rx="18" fill="#1F2A3C"/>
+  <rect x="34" y="24" width="532" height="222" rx="10" fill="#FFF6C7"/>
+  <rect x="270" y="260" width="60" height="22" fill="#1F2A3C"/><rect x="220" y="280" width="160" height="12" rx="6" fill="#1F2A3C"/>
+  <g transform="translate(0,26)"><g transform="translate(140,0)">
+  <circle cx="0" cy="62" r="34" fill="#fff" stroke="#1A1A1A" stroke-width="4"/>
+  <circle cx="-24" cy="34" r="11" fill="#1A1A1A"/><circle cx="24" cy="34" r="11" fill="#1A1A1A"/>
+  <circle cx="0" cy="62" r="34" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+  <rect x="-33" y="40" width="66" height="10" rx="4" fill="#E60012"/>
+  <path d="M30 44 l16 -6 l-4 12 z" fill="#E60012"/>
+  <ellipse cx="-12" cy="64" rx="9" ry="11" fill="#1A1A1A" transform="rotate(-20 -12 64)"/>
+  <ellipse cx="12" cy="64" rx="9" ry="11" fill="#1A1A1A" transform="rotate(20 12 64)"/>
+  <circle cx="-11" cy="63" r="3.5" fill="#fff"/><circle cx="11" cy="63" r="3.5" fill="#fff"/>
+  <ellipse cx="0" cy="78" rx="5" ry="3.5" fill="#1A1A1A"/>
+  <rect x="-46" y="108" width="92" height="96" rx="10" fill="#fff" stroke="#1A1A1A" stroke-width="3"/>
+  <rect x="-36" y="120" width="72" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-36" y="136" width="72" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-36" y="152" width="50" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-24" y="174" width="48" height="18" rx="9" fill="#E60012"/>
+  <path d="M-10 183 l7 6 l13 -13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g><g transform="translate(300,0)">
+  <circle cx="0" cy="62" r="34" fill="#fff" stroke="#1A1A1A" stroke-width="4"/>
+  <circle cx="-24" cy="34" r="11" fill="#1A1A1A"/><circle cx="24" cy="34" r="11" fill="#1A1A1A"/>
+  <circle cx="0" cy="62" r="34" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+  <rect x="-33" y="40" width="66" height="10" rx="4" fill="#E60012"/>
+  <path d="M30 44 l16 -6 l-4 12 z" fill="#E60012"/>
+  <ellipse cx="-12" cy="64" rx="9" ry="11" fill="#1A1A1A" transform="rotate(-20 -12 64)"/>
+  <ellipse cx="12" cy="64" rx="9" ry="11" fill="#1A1A1A" transform="rotate(20 12 64)"/>
+  <circle cx="-11" cy="63" r="3.5" fill="#fff"/><circle cx="11" cy="63" r="3.5" fill="#fff"/>
+  <ellipse cx="0" cy="78" rx="5" ry="3.5" fill="#1A1A1A"/>
+  <rect x="-46" y="108" width="92" height="96" rx="10" fill="#fff" stroke="#1A1A1A" stroke-width="3"/>
+  <rect x="-36" y="120" width="72" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-36" y="136" width="72" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-36" y="152" width="50" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-24" y="174" width="48" height="18" rx="9" fill="#E60012"/>
+  <path d="M-10 183 l7 6 l13 -13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g><g transform="translate(460,0)">
+  <circle cx="0" cy="62" r="34" fill="#fff" stroke="#1A1A1A" stroke-width="4"/>
+  <circle cx="-24" cy="34" r="11" fill="#1A1A1A"/><circle cx="24" cy="34" r="11" fill="#1A1A1A"/>
+  <circle cx="0" cy="62" r="34" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+  <rect x="-33" y="40" width="66" height="10" rx="4" fill="#E60012"/>
+  <path d="M30 44 l16 -6 l-4 12 z" fill="#E60012"/>
+  <ellipse cx="-12" cy="64" rx="9" ry="11" fill="#1A1A1A" transform="rotate(-20 -12 64)"/>
+  <ellipse cx="12" cy="64" rx="9" ry="11" fill="#1A1A1A" transform="rotate(20 12 64)"/>
+  <circle cx="-11" cy="63" r="3.5" fill="#fff"/><circle cx="11" cy="63" r="3.5" fill="#fff"/>
+  <ellipse cx="0" cy="78" rx="5" ry="3.5" fill="#1A1A1A"/>
+  <rect x="-46" y="108" width="92" height="96" rx="10" fill="#fff" stroke="#1A1A1A" stroke-width="3"/>
+  <rect x="-36" y="120" width="72" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-36" y="136" width="72" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-36" y="152" width="50" height="9" rx="3" fill="#E6DFD2"/>
+  <rect x="-24" y="174" width="48" height="18" rx="9" fill="#E60012"/>
+  <path d="M-10 183 l7 6 l13 -13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g></g>
+</svg></div>
+        <p>問い合わせフォームを探す → 入力する → 送信する → 完了画面を確かめて記録する。ここまでを、人の手を使わずに進めます。1台のPCの中でAIが3台同時に動くので、1台ずつ送るより約3倍の速さです。夜も休みの日も送り続けます。</p>
+        <p class="small">「営業お断り」と書いてある会社や、フォームのない会社は自動で飛ばします。</p>
+      </div>
+      <div class="mode">
+        <span class="tag check">② 確認モード（仕上げ）</span>
+        <h3>全自動で送れなかった会社は、人の目で1社ずつ仕上げます</h3>
+        <figure class="shot" style="margin:0">
+          <img src="img/form-demo.webp" width="1255" height="599" alt="確認モードで、AIが問い合わせフォームに名前・メール・会社名などを入力し終えた画面" loading="lazy">
+        </figure>
+        <p>「私はロボットではありません」のようなロボット確認があるフォームや、形が特殊なフォームは、全自動では送りません。確認モードでは、入力まではAIが済ませて、最後のチェックと送信ボタンだけを人が押します。ロボット確認も人がその場でチェックを入れるので、全自動では届かない会社にも送れます。</p>
+        <p class="small">画面は実際の送信テストのものです（会社名・名前などはぼかしています）。</p>
+      </div>
+    </div>
+    <div class="route" aria-label="送り方の流れ">
+      <div>① 全自動で一気に送る</div><span aria-hidden="true">→</span>
+      <div>② 送れなかった会社だけ確認モードで仕上げる</div><span aria-hidden="true">→</span>
+      <div class="goal">送れる会社には、ほぼ全部届く</div>
+    </div>
   </div>
 </section>
 
