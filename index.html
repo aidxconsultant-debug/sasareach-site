@@ -2,6 +2,16 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVLMQ3MMR6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WVLMQ3MMR6');
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>フォーム営業代行ササリーチ｜1ヶ月無料で、問い合わせフォームに営業文を自動送信</title>
 <meta name="description" content="ササリーチは、営業先の問い合わせフォームに、お客様の営業文を自動で送るフォーム営業代行サービスです。送り先探し・文面づくり・送信・記録までこちらで行い、お客様は届いた返信を見るだけ。1ヶ月無料、契約は1ヶ月ごとで縛りなし。">
@@ -441,5 +451,14 @@ footer .op:last-child{margin:0}
   </div>
 </footer>
 
+<script>
+// 面談予約（Googleカレンダー）へのボタンが押されたら「見込み顧客」として数える
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href*="calendar.app.google"]');
+  if (!a || typeof gtag !== 'function') return;
+  var sec = a.closest('section');
+  gtag('event', 'generate_lead', { method: 'calendar', link_location: (sec && (sec.getAttribute('aria-labelledby') || sec.className)) || 'header', transport_type: 'beacon' });
+}, true);
+</script>
 </body>
 </html>
