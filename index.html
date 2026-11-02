@@ -120,6 +120,17 @@ h2{margin:0 0 28px;font-size:clamp(24px,4.6vw,36px);line-height:1.45;font-weight
 .route div{background:var(--beige);border-radius:14px;padding:14px 16px;font-weight:700;text-align:center}
 .route div.goal{background:var(--yellow);border:3px solid var(--ink)}
 .route span{text-align:center;font-weight:900;color:var(--label)}
+/* column */
+.cols{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.col a{display:grid;grid-template-columns:1fr;gap:10px;align-items:center;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:12px;color:var(--ink);text-decoration:none}
+@media(min-width:600px){.col a{grid-template-columns:240px 1fr;padding:14px;gap:20px}}
+.col a:hover{box-shadow:0 5px 0 var(--ink);transform:translateY(-2px)}
+.col img{width:100%;height:auto;border-radius:10px;display:block}
+.col .c-date{font-size:12px;color:var(--label);font-weight:700}
+.col .c-title{display:block;font-weight:900;font-size:17px;line-height:1.5;margin:2px 0 4px}
+.col .c-desc{font-size:14px;color:var(--sub);margin:0}
+.more-note{margin:16px 0 0;text-align:right;font-weight:700}
+.more-note a{color:var(--ink)}
 /* screenshot */
 .shot{border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff}
 .shot-ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#555;font-weight:700;border:3px dashed #B9AE9C;border-radius:16px;background:#fff;padding:20px}
@@ -380,6 +391,20 @@ footer a{color:#fff}
       <details><summary>会社の評判が悪くなりませんか？</summary><p>「営業お断り」と書いてある会社や、一度断られた会社には送りません。ロボット確認をすり抜けることもしません。</p></details>
       <details><summary>2ヶ月目からの契約はどうなりますか？</summary><p>無料期間の結果を見てから、続けるかどうかを決めていただけます。契約は1ヶ月ごとで、縛りはありません。</p></details>
     </div>
+  </div>
+</section>
+
+<section aria-labelledby="col-h">
+  <div class="wrap">
+    <p class="label">コラム</p>
+    <h2 id="col-h">noteで、フォーム営業の<span class="mark">本物の数字</span>を書いています</h2>
+    <ul class="cols">
+      <li class="col"><a href="https://note.com/aidx_consultant/n/nceb02b1bcad1" target="_blank" rel="noopener">
+        <img src="img/note/jikoshokai.webp" width="640" height="335" alt="" loading="lazy">
+        <span><span class="c-date">2026.11.02</span><span class="c-title">自己紹介｜はじめてのnote</span><span class="c-desc">ササリーチを作った人の自己紹介です。なぜ「先に結果を見てもらう」やり方にしているのか。</span></span>
+      </a></li>
+    </ul>
+    <p class="more-note"><a href="https://note.com/aidx_consultant" target="_blank" rel="noopener">noteをもっと読む →</a></p>
   </div>
 </section>
 
