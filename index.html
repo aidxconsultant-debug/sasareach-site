@@ -459,6 +459,20 @@ document.addEventListener('click', function (e) {
   var sec = a.closest('section');
   gtag('event', 'generate_lead', { method: 'calendar', link_location: (sec && (sec.getAttribute('aria-labelledby') || sec.className)) || 'header', transport_type: 'beacon' });
 }, true);
+// noteの記事・SNSへのリンクが押されたら、行き先ごとに数える
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href^="http"]');
+  if (!a || typeof gtag !== 'function') return;
+  var u = a.href, host = a.hostname.replace(/^www\./, '');
+  var sns = { 'x.com': 'X', 'twitter.com': 'X', 'instagram.com': 'Instagram', 'facebook.com': 'Facebook', 'threads.com': 'Threads', 'threads.net': 'Threads' };
+  var where = a.closest('footer') ? 'footer' : ((a.closest('section') || {}).getAttribute ? a.closest('section').getAttribute('aria-labelledby') : '');
+  if (host === 'note.com') {
+    var t = a.querySelector('.c-title');
+    gtag('event', 'note_click', { link_url: u, article: t ? t.textContent.slice(0, 90) : 'note（トップ）', link_location: where, transport_type: 'beacon' });
+  } else if (sns[host]) {
+    gtag('event', 'sns_click', { platform: sns[host], link_url: u, link_location: where, transport_type: 'beacon' });
+  }
+}, true);
 </script>
 </body>
 </html>
