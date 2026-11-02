@@ -1,0 +1,25 @@
+name: noteの記事をLPに反映
+on:
+  schedule:
+    - cron: "17 * * * *"   # 1時間ごと
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/update_notes.py
+      - name: 変わっていたら公開
+        run: |
+          if git diff --quiet; then echo "変更なし"; exit 0; fi
+          sed -i "s#<lastmod>[0-9-]*</lastmod>#<lastmod>$(TZ=Asia/Tokyo date +%F)</lastmod>#" sitemap.xml
+          git config user.name "note-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html sitemap.xml
+          git commit -m "noteの新しい記事をコラム欄に反映"
+          git push
