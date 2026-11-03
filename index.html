@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,362 +58,385 @@
 }
 </script>
 <style>
-:root{--ink:#1A1A1A;--red:#E60012;--red-dark:#C8000F;--yellow:#FFE14D;--cream:#FBF7EF;--beige:#F1EBE0;--line:#E6DFD2;--orange:#EF8F3A;--label:#A8500E;--navy:#1F2A3C;--sub:#3D3D3D}
+:root{--ink:#1A1A1A;--red:#E60012;--red-dark:#C8000F;--yellow:#FFE14D;--cream:#FBF7EF;--beige:#F1EBE0;--line:#E6DFD2;--orange:#EF8F3A;--label:#A8500E;--navy:#1F2A3C;--sub:#3D3D3D;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;line-height:1.7;-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;line-height:1.7;-webkit-text-size-adjust:100%;background-color:var(--cream)}
+.grid-bg,body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-section{padding:64px 0}
-.bg-beige{background:var(--beige)}
-.bg-white{background:#fff}
-.label{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--label);letter-spacing:.1em}
-h2{margin:0 0 28px;font-size:clamp(24px,4.6vw,36px);line-height:1.45;font-weight:900}
-.mark{background:linear-gradient(transparent 55%,var(--yellow) 55%)}
-.btn{display:block;text-decoration:none;background:var(--red);color:#fff;border:4px solid var(--ink);border-radius:999px;padding:18px 24px;text-align:center;font-size:clamp(20px,4vw,28px);font-weight:900;box-shadow:0 6px 0 var(--ink);transition:transform .1s,box-shadow .1s;max-width:560px;margin:0 auto}
-.btn:hover{background:var(--red-dark)}
-.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--ink)}
-.btn:focus-visible{outline:4px solid var(--yellow);outline-offset:4px}
-.note{font-size:14px;color:var(--sub)}
-.grid{display:grid;gap:14px}
-.card{background:#fff;border:2px solid var(--line);border-radius:18px;padding:22px}
-/* header */
-.site-header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:3px solid var(--ink)}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-weight:900;font-size:22px;text-decoration:none;letter-spacing:.04em}
-.brand small{font-size:13px;font-weight:700;color:var(--sub);margin-left:6px}
-.head-btn{text-decoration:none;background:var(--red);color:#fff;font-weight:900;font-size:15px;padding:10px 18px;border-radius:999px;border:3px solid var(--ink);min-height:44px;display:flex;align-items:center}
-/* hero */
-.hero{background:#fff;padding:24px 0 56px}
-.hero .wrap{display:grid;gap:24px;align-items:center}
-.hero-lead{margin:0;font-size:17px;font-weight:700;color:var(--sub)}
-.hero h1{margin:4px 0 0;font-size:clamp(32px,6.4vw,52px);line-height:1.3;font-weight:900}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.stat{background:#FFF6C7;border:3px solid var(--ink);border-radius:16px;padding:14px 6px;text-align:center}
-.stat b{display:block;font-size:clamp(26px,5vw,36px);font-weight:900;color:#C8000F;line-height:1.3}
-.stat span{font-size:14px;font-weight:700}
-.free{font-size:15px;font-weight:700;text-align:center;margin:12px 0 0}
-@media(min-width:880px){.hero .wrap{grid-template-columns:1.05fr 1fr}.hero-text{order:-1}}
-/* worries */
-.worry{background:#fff;border-radius:14px;padding:18px 22px;font-size:clamp(17px,3.2vw,21px);font-weight:700;display:flex;gap:14px;align-items:center}
-.worry svg{flex:none}
-.solve{margin:28px 0 0;font-size:clamp(22px,4.4vw,30px);font-weight:900;text-align:center;line-height:1.5}
-/* steps */
-.feature{display:flex;gap:18px;align-items:flex-start}
-.feature h3{margin:0;font-size:22px;font-weight:900}
-.feature p{margin:4px 0 0;font-size:17px;color:var(--sub)}
-@media(min-width:760px){.feat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.feature{flex-direction:column}}
-/* results */
-.results{background:var(--yellow);border-top:4px solid var(--ink);border-bottom:4px solid var(--ink)}
-.results .label{color:var(--ink)}
-.res{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:22px 8px;text-align:center}
-.res b{display:block;font-size:clamp(34px,7vw,52px);font-weight:900;line-height:1.2}
-.res b small{font-size:.5em}
-.res span{font-size:14px;font-weight:700}
-.res.hot{background:var(--red);color:#fff}
-/* modes */
-.modes{display:grid;gap:18px}
-@media(min-width:860px){.modes{grid-template-columns:1fr 1fr;align-items:start}}
-.mode{background:#fff;border:3px solid var(--ink);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px}
-.mode.main{box-shadow:0 6px 0 var(--ink)}
-.tag{align-self:flex-start;font-size:13px;font-weight:900;padding:4px 12px;border-radius:999px;border:2px solid var(--ink)}
-.tag.auto{background:var(--red);color:#fff}
-.tag.check{background:var(--yellow)}
-.mode h3{margin:0;font-size:clamp(20px,3.6vw,24px);line-height:1.45;font-weight:900}
-.mode p{margin:0;font-size:16px;color:var(--sub)}
-.mode .small{font-size:14px}
-.pc{background:var(--cream);border-radius:14px;padding:10px}
-.pc svg{width:100%;height:auto;display:block}
-.route{margin-top:22px;display:grid;gap:10px;align-items:center}
-@media(min-width:760px){.route{grid-template-columns:1fr auto 1fr auto 1fr}}
-.route div{background:var(--beige);border-radius:14px;padding:14px 16px;font-weight:700;text-align:center}
-.route div.goal{background:var(--yellow);border:3px solid var(--ink)}
-.route span{text-align:center;font-weight:900;color:var(--label)}
-/* column */
-.cols{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.col a{display:grid;grid-template-columns:1fr;gap:10px;align-items:center;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:12px;color:var(--ink);text-decoration:none}
-@media(min-width:600px){.col a{grid-template-columns:240px 1fr;padding:14px;gap:20px}}
-.col a:hover{box-shadow:0 5px 0 var(--ink);transform:translateY(-2px)}
-.col img{width:100%;height:auto;border-radius:10px;display:block}
-.col .c-date{font-size:12px;color:var(--label);font-weight:700}
-.col .c-title{display:block;font-weight:900;font-size:17px;line-height:1.5;margin:2px 0 4px}
-.col .c-desc{font-size:14px;color:var(--sub);margin:0}
-.more-note{margin:16px 0 0;text-align:right;font-weight:700}
-.more-note a{color:var(--ink)}
-/* screenshot */
-.shot{border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff}
-.shot-ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#555;font-weight:700;border:3px dashed #B9AE9C;border-radius:16px;background:#fff;padding:20px}
-/* flow */
-.flow{display:flex;gap:18px;align-items:center;border-radius:16px;padding:18px 22px;background:#fff}
-.flow.you{background:var(--orange)}
-.flow .num{font-size:38px;font-weight:900;width:40px;flex:none;color:var(--label)}
-.flow.you .num{color:var(--ink)}
-.flow h3{margin:0;font-size:21px;font-weight:900}
-.flow p{margin:2px 0 0;font-size:16px}
-.who{display:inline-block;font-size:13px;padding:1px 10px;border-radius:999px;border:2px solid var(--ink);vertical-align:middle;margin-left:6px;font-weight:700}
-.flow.you .who{background:var(--ink);color:#fff}
-/* eight */
-.eight{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.eight li{list-style:none;background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px 18px;font-size:17px;font-weight:500}
-.eight li b{color:var(--label);margin-right:8px}
-.eight{padding:0;margin:0}
-/* rules */
-@media(min-width:760px){.rules{grid-template-columns:1fr 1fr}}
-.rule h3{margin:0 0 8px;font-size:22px;font-weight:900;color:var(--label)}
-.rule ul{margin:0;padding-left:1.2em;font-size:17px;line-height:1.9}
-.rule.fixed{background:var(--navy);color:#fff;border-color:var(--navy)}
-.rule.fixed h3{color:var(--yellow)}
-/* after */
-.after{counter-reset:s;padding:0;margin:0;list-style:none;display:grid;gap:10px}
-.after li{background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px 22px;display:flex;gap:16px;align-items:center;font-size:18px;font-weight:500}
-.after li::before{counter-increment:s;content:counter(s);font-size:28px;font-weight:900;color:var(--label)}
-@media(min-width:760px){.after{grid-template-columns:repeat(4,minmax(0,1fr))}.after li{flex-direction:column;align-items:flex-start}}
-.price{margin-top:20px;border:3px solid var(--ink);border-radius:16px;padding:22px;text-align:center;background:#fff}
-.price .p-label{margin:0;font-weight:900;color:var(--label);font-size:15px}
-.price .p-num{margin:6px 0 4px;font-weight:900;font-size:clamp(30px,6vw,40px);line-height:1.3}
-.price .p-sub{margin:0;font-weight:700;font-size:16px}
-.price .p-note{margin:10px 0 0;font-size:13px;color:#666}
-/* faq */
-.faq details{background:#fff;border-radius:16px;padding:0 22px}
-.faq summary{cursor:pointer;font-size:19px;font-weight:900;padding:20px 0;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:44px}
+h1,h2,p{margin:0}
+.mono{font-family:var(--mono)}
+/* 3列：左（ロゴ・申込）／真ん中（本文）／右（目次） */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px) minmax(0,1fr);min-height:100vh}
+.side{padding:40px 24px;display:flex}
+.side.left{justify-content:flex-end;padding-right:48px}
+.side.right{justify-content:flex-start;padding-left:48px}
+.side-in{position:sticky;top:40px;align-self:flex-start;display:flex;flex-direction:column;gap:20px}
+.side.left .side-in{width:300px}
+.logo-box{background:var(--ink);border-radius:16px;padding:20px 24px;box-shadow:4px 4px 0 var(--red);text-decoration:none}
+.logo-box b{display:block;font-size:32px;font-weight:900;color:#fff;letter-spacing:.04em;line-height:1.3}
+.logo-box small{display:block;font-family:var(--mono);font-size:13px;color:var(--yellow);letter-spacing:.2em}
+.side-copy{font-size:18px;font-weight:700;line-height:1.6;text-align:right}
+.side-copy span{color:var(--red)}
+.side .panda{width:150px;align-self:flex-end}
+.toc{width:200px}
+.toc-h{font-family:var(--mono);font-size:22px;font-weight:700;font-style:italic;margin-bottom:6px}
+.toc a{display:flex;gap:10px;align-items:baseline;padding:7px 0;text-decoration:none;color:var(--sub);font-size:14px;font-weight:500;transition:color .2s}
+.toc a span{font-family:var(--mono);font-size:11px}
+.toc a.on{color:var(--red);font-weight:900}
+main{background:#fff;border-left:2px solid var(--ink);border-right:2px solid var(--ink);min-width:0;overflow:hidden}
+@media (max-width:1023px){.layout{grid-template-columns:minmax(0,1fr)}.side{display:none}main{border:0;max-width:560px;width:100%;margin:0 auto}}
+/* ボタン */
+.btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 16px;background:var(--red);color:#fff;border:2px solid var(--ink);border-radius:999px;text-decoration:none;box-shadow:0 4px 0 var(--ink);text-align:center;transition:transform .15s,box-shadow .15s}
+.btn b{font-size:18px;font-weight:900}
+.btn small{font-size:11px;font-weight:500}
+.btn.white{background:#fff;color:var(--ink);font-size:15px;font-weight:700}
+.btn:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
+.lift{transition:transform .15s,box-shadow .15s}
+.lift:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
+/* ヘッダー・流れるタグ */
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--ink);position:sticky;top:0;z-index:5}
+.site-header .brand{font-size:20px;font-weight:900;color:#fff;text-decoration:none}
+.site-header .brand small{font-family:var(--mono);font-size:11px;color:var(--yellow);font-weight:500;margin-left:4px}
+.head-btn{padding:8px 16px;background:var(--red);color:#fff;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none}
+.ticker{overflow:hidden;border-bottom:2px solid var(--ink);background:var(--yellow);padding:10px 0}
+.ticker.dark{background:var(--ink);border:0}
+.track{display:flex;gap:10px;width:max-content;animation:marquee 28s linear infinite}
+.ticker.dark .track{gap:28px;animation-duration:16s}
+.tag{flex:none;padding:6px 12px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:13px;font-weight:700;white-space:nowrap}
+.how{flex:none;font-family:var(--mono);font-size:16px;font-weight:700;color:var(--yellow);white-space:nowrap}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* セクション共通 */
+.sec{padding:36px 20px;display:flex;flex-direction:column;gap:14px;border-top:2px solid var(--ink)}
+.sec.white{background:#fff}.sec.beige{background:var(--beige)}.sec.dark{background:var(--ink);color:#fff}.sec.red{background:var(--red);color:#fff}
+.sec.grid-bg{background-color:var(--cream)}
+.eyebrow{text-align:center;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--label);letter-spacing:.2em}
+.sec.dark .eyebrow{color:var(--yellow)}
+.sec h2{text-align:center;font-size:23px;font-weight:900;line-height:1.55}
+.mark{background:var(--yellow);padding:0 5px;color:var(--ink)}
+.down{text-align:center;font-size:22px;line-height:1}
+.card{background:#fff;border:2px solid var(--ink);border-radius:16px}
+.muted{font-size:13px;line-height:1.7;color:var(--sub)}
+.small{font-size:11px;color:var(--sub)}
+/* ヒーロー */
+.hero{padding:32px 20px 28px;display:flex;flex-direction:column;gap:18px;border:0}
+.hero .kicker{text-align:center;font-size:14px;font-weight:700}
+.hero h1{font-size:48px;line-height:1.25;font-weight:900;letter-spacing:.02em}
+.hero h1 span{color:var(--red)}
+.hero .sub{align-self:flex-start;padding:6px 12px;background:var(--ink);color:#fff;font-size:18px;font-weight:700}
+.hero-row{display:flex;gap:12px;align-items:flex-end}
+.term{flex:1 1 auto;min-width:0;background:var(--ink);border-radius:12px;padding:12px 14px 14px;font-family:var(--mono);font-size:12px;line-height:1.8;color:#fff;box-shadow:4px 4px 0 var(--red)}
+.dots{display:flex;gap:6px;margin-bottom:8px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--red)}.dots i:nth-child(2){background:var(--yellow)}.dots i:nth-child(3){background:var(--orange)}
+.term .y{color:var(--yellow)}
+.typing{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;width:0;animation:type 1.6s steps(17) .4s forwards}
+@keyframes type{to{width:17ch}}
+.caret{display:inline-block;width:8px;height:15px;background:var(--yellow);margin-left:2px;vertical-align:-2px;animation:caret 1s step-end infinite}
+@keyframes caret{50%{opacity:0}}
+.log{opacity:0;transform:translateY(4px);animation:show .3s ease-out forwards}
+.l1{animation-delay:2.2s}.l2{animation-delay:2.9s}.l3{animation-delay:3.6s}.l4{animation-delay:4.3s}
+@keyframes show{to{opacity:1;transform:none}}
+.hero .panda{flex:none;width:110px}
+.bob{animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:10px 6px;text-align:center}
+.stat b{display:block;font-size:28px;font-weight:900;color:var(--red);line-height:1.3}
+.stat b small{font-size:14px}
+.stat>span{font-size:11px;font-weight:700}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.pulse:hover{animation:none}
+/* お悩み */
+.bubble{background:#fff;border:2px solid var(--ink);border-radius:14px 14px 14px 2px;padding:12px 14px;font-size:15px;font-weight:700}
+.bubble.r{border-radius:14px 14px 2px 14px;margin-left:24px}
+.answer{text-align:center;font-size:22px;font-weight:900;line-height:1.5}
+/* ササリーチとは */
+.lead-box{align-self:center;text-align:center;background:var(--ink);color:#fff;padding:8px 12px;font-size:16px;font-weight:700;line-height:1.6}
+.step{display:flex;gap:14px;align-items:center;padding:14px;box-shadow:0 4px 0 var(--ink)}
+.step .no{flex:none;width:56px;height:56px;border-radius:12px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900}
+.step h3{margin:0;font-size:18px;font-weight:900}
+.step p{font-size:13px;line-height:1.6;color:var(--sub)}
+/* 実績 */
+.sec.dark h2 .big{color:var(--yellow);font-size:34px}
+.report{background:#fff;color:var(--ink);border-radius:12px;padding:12px 14px 16px;font-family:var(--mono)}
+.report .fn{font-size:12px;color:var(--sub);margin-bottom:10px}
+.bar-row{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.bar-row .lab{display:flex;justify-content:space-between;font-size:13px;font-weight:700;font-family:"Noto Sans JP",sans-serif}
+.bar{height:12px;background:var(--beige);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:12px;border-radius:6px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.in .bar i{width:var(--w)}
+.sec.dark .note{font-size:12px;line-height:1.7;color:var(--line)}
+/* 2つの送り方 */
+.win{overflow:hidden}
+.win-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--ink);color:#fff;font-family:var(--mono);font-size:12px}
+.win-bar .y{color:var(--yellow)}
+.win-bar.yel{background:var(--yellow);color:var(--ink);font-weight:700}
+.win-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+.win-body .kind{font-size:12px;font-weight:900;color:var(--red)}
+.win-body h3{margin:0;font-size:18px;font-weight:900;line-height:1.5}
+.ais{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.ai{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:8px;font-family:var(--mono);font-size:11px}
+.ai .bar{height:6px;margin-top:6px;background:var(--line)}
+.ai .bar i{height:6px;background:var(--red);animation:work 2.6s ease-in-out infinite;width:30%}
+.ai:nth-child(2) .bar i{animation-delay:.6s}.ai:nth-child(3) .bar i{animation-delay:1.2s}
+@keyframes work{0%{width:8%}70%{width:100%}100%{width:100%}}
+.tip{font-size:12px;line-height:1.6;padding:8px 10px;background:var(--beige);border-radius:8px}
+.win-body img{width:100%;border:1px solid var(--line);border-radius:8px}
+.chain{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700}
+.chain div{padding:10px 12px;border-radius:10px}
+.chain .c1{background:var(--ink);color:#fff}.chain .c2{background:#fff;border:2px solid var(--ink)}.chain .c3{background:var(--red);color:#fff}
+/* 流れ */
+.flow{display:flex;gap:12px;align-items:stretch}
+.flow .rail{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px}
+.flow .num{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.flow .line{flex:1 1 auto;width:2px;background:var(--ink);min-height:12px}
+.flow:last-of-type .line{display:none}
+.flow .card{flex:1 1 auto;border-radius:12px;padding:10px 12px}
+.flow h3{margin:0;display:flex;gap:8px;align-items:center;font-size:16px;font-weight:900}
+.who{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--ink);color:#fff}
+.who.you{background:var(--yellow);color:var(--ink)}
+.flow p{font-size:13px;line-height:1.6;color:var(--sub)}
+/* 8つ */
+.sheet{background:var(--ink);border-radius:12px;padding:12px 14px;color:#fff}
+.sheet .fn{font-family:var(--mono);font-size:12px;color:var(--yellow);margin-bottom:8px}
+.sheet ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;counter-reset:n}
+.sheet li{display:flex;gap:6px;font-size:12px;line-height:1.5;counter-increment:n}
+.sheet li::before{content:"[" counter(n) "]";flex:none;color:var(--yellow);font-family:var(--mono);font-weight:700}
+/* ルール */
+.can{border-radius:14px;padding:12px 14px}
+.can h3{margin:0 0 4px;font-size:14px;font-weight:900}
+.can ul{margin:0;padding-left:1.2em;font-size:13px;line-height:1.8}
+.rule{display:flex;gap:12px;align-items:center;background:var(--cream);border:2px solid var(--ink);border-radius:14px;padding:10px 12px}
+.rule .rn{flex:none;display:flex;flex-direction:column;align-items:center;line-height:1}
+.rule .rn small{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--label)}
+.rule .rn b{font-size:30px;font-weight:900;color:var(--red)}
+.rule p{font-size:15px;font-weight:900;line-height:1.5}
+/* 料金 */
+.lead{text-align:center;font-size:14px;font-weight:700}
+.steps4{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;counter-reset:s}
+.steps4 li{padding:8px 12px;background:#fff;border-radius:8px;counter-increment:s}
+.steps4 li::before{content:counter(s) ". "}
+.price{border:3px solid var(--ink);border-radius:16px;padding:18px 16px;text-align:center;box-shadow:5px 5px 0 var(--red);background:#fff}
+.price .t{font-size:13px;font-weight:700}
+.price .yen{font-size:44px;font-weight:900;color:var(--red);line-height:1.2}
+.price .yen small{font-size:16px;color:var(--ink)}
+.price .cond{display:inline-block;margin-top:4px;padding:4px 10px;background:var(--yellow);font-size:13px;font-weight:700}
+.price p{margin-top:10px;font-size:12px;line-height:1.6;color:var(--sub);text-align:left}
+/* FAQ */
+.faq{overflow:hidden;border-radius:12px}
+.faq summary{list-style:none;display:flex;gap:10px;align-items:center;padding:12px;min-height:44px;font-size:14px;font-weight:900;cursor:pointer}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:24px;line-height:1}
-.faq details[open] summary::after{content:"−"}
-.faq details p{margin:0 0 20px;font-size:17px;color:var(--sub)}
-/* cta */
-.cta{background:#fff;border-top:4px solid var(--ink);text-align:center}
-.bubble{display:inline-block;background:#fff;border:4px solid var(--ink);border-radius:24px;padding:14px 28px;font-size:clamp(20px,4vw,26px);font-weight:900;line-height:1.5;box-shadow:0 5px 0 var(--ink);position:relative}
-.bubble::after{content:"";position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);border:14px solid transparent;border-top-color:var(--ink)}
-.cta img{max-width:520px;margin:20px auto 0;width:100%}
-.big{font-size:clamp(60px,14vw,96px);font-weight:900;line-height:1.1;margin:8px 0 16px}
-.big span{color:var(--red)}
-.cta-text{font-size:clamp(18px,3.6vw,22px);font-weight:700;margin:0 0 28px}
-.pill{display:inline-block;margin-top:22px;background:var(--yellow);border-radius:999px;padding:8px 22px;font-size:15px;font-weight:700}
-footer{background:var(--ink);color:#fff;padding:32px 0;text-align:center;font-size:14px}
-footer a{color:#fff}
-footer .op{margin:0 0 10px;line-height:1.8}
-footer .sns{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-footer .sns a{display:inline-block;min-width:0;padding:7px 12px;font-size:13px;border:2px solid #fff;border-radius:999px;font-weight:700;text-decoration:none;background:transparent}
+.faq summary::before{content:"Q.";flex:none;color:var(--red);font-family:var(--mono)}
+.faq summary::after{content:"＋";margin-left:auto;flex:none;font-size:18px}
+.faq[open] summary::after{content:"－"}
+.faq .a{display:flex;gap:10px;padding:0 12px 12px;font-size:13px;line-height:1.7;color:var(--sub)}
+.faq .a::before{content:"A.";flex:none;color:var(--label);font-family:var(--mono);font-weight:700}
+/* コラム（noteの記事。中身は自動で入れ替わります） */
+.cols{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.col a{display:block;background:var(--cream);border:2px solid var(--ink);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.col a:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
+.col img{width:100%;aspect-ratio:1280/670;object-fit:cover;border-bottom:2px solid var(--ink)}
+.col a>span{display:flex;flex-direction:column;gap:4px;padding:10px 14px 12px}
+.c-date{font-family:var(--mono);font-size:11px;color:var(--label)}
+.c-title{font-size:14px;font-weight:900;line-height:1.5}
+.c-desc{font-size:12px;line-height:1.6;color:var(--sub)}
+.more-note{text-align:center;font-size:14px;font-weight:700}
+.more-note a{color:var(--red)}
+/* 最後の申込 */
+.cta{align-items:center;text-align:center;padding:40px 20px 36px}
+.cta .panda{width:120px}
+.cta h2{font-size:26px}
+.free{background:var(--yellow);color:var(--ink);border:3px solid var(--ink);border-radius:50%;width:120px;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1;font-weight:900}
+.free span{font-size:26px}.free b{font-size:30px}
+.cta .btn{width:100%;background:#fff;color:var(--red)}
+.cta .btn b{font-size:17px}
+.cta .fine{font-size:11px}
+/* フッター */
+footer{padding:24px 20px 28px;background:var(--ink);color:#fff;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+footer .op{font-size:11px;line-height:1.7;color:var(--line)}
+footer .op b{font-size:12px;color:#fff}
+footer .sns{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+footer .sns a{display:inline-block;padding:6px 12px;font-size:12px;border:1px solid #fff;border-radius:999px;text-decoration:none}
 footer .sns a:hover{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
-footer .op:last-child{margin:0}
+footer .op a{color:var(--yellow)}
+/* スマホ：下に固定ボタン */
+.spbar{display:none}
+@media (max-width:1023px){.spbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(26,26,26,.92);justify-content:center;transform:translateY(110%);transition:transform .3s}.spbar.show{transform:none}.spbar a{width:100%;max-width:520px;display:flex;justify-content:center;padding:12px;background:var(--red);color:#fff;border-radius:999px;font-size:16px;font-weight:900;text-decoration:none}footer{padding-bottom:96px}}
+/* スクロールで下からふわっと */
+.rise{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rise{opacity:1;transform:none}.typing{width:auto}.log{opacity:1;transform:none}.bar i{width:var(--w)}}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#top">ササリーチ<small>SasaReach</small></a>
-    <a class="head-btn" href="#contact">無料で試す</a>
+<div class="layout">
+
+<aside class="side left" aria-label="申し込み">
+  <div class="side-in">
+    <a class="logo-box" href="#top"><b>ササリーチ</b><small>SasaReach</small></a>
+    <p class="side-copy">中小企業のための、<br><span>フォーム営業代行</span></p>
+    <img class="panda bob" src="img/panda.webp" width="320" height="312" alt="ササリーチのパンダ">
+    <a class="btn" href="#contact"><small>申込書を交わすまで、料金は0円</small><b>1ヶ月 無料で試してみる</b></a>
+    <a class="btn white" href="https://calendar.app.google/Z2iBAVEG55RNhJNd9" target="_blank" rel="noopener">面談の日時を選ぶ</a>
   </div>
-</header>
+</aside>
 
 <main id="top">
 
-<section class="hero">
-  <div class="wrap">
-    <img src="img/sasareach-logo.webp" width="1200" height="800" alt="ササリーチ（SasaReach）無駄なアポは、もう終わり。刺さる相手にだけ届く、フォーム営業" fetchpriority="high">
-    <div class="hero-text">
-      <p class="hero-lead">中小企業のための、フォーム営業代行</p>
-      <h1>営業文は、<span class="mark">ぼくが届ける</span>。<br>あなたは返信を見るだけ。</h1>
-      <div class="stats" style="margin-top:24px">
-        <div class="stat"><b>64社</b><span>に送信完了</span></div>
-        <div class="stat"><b>約7割</b><span>の送信成功率</span></div>
-        <div class="stat"><b>28社</b><span>で到達を確認</span></div>
-      </div>
-      <p class="note" style="margin:8px 0 22px">東京の運送会社93社への送信テストより（2026年10月）</p>
-      <a class="btn" href="#contact">1ヶ月 無料で試してみる</a>
-      <p class="free">申込書を交わすまで、料金は一切かかりません</p>
+<header class="site-header">
+  <a class="brand" href="#top">ササリーチ<small>SasaReach</small></a>
+  <a class="head-btn" href="#contact">無料で試す</a>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="track">
+  <span class="tag">#フォーム営業</span><span class="tag">#問い合わせフォーム</span><span class="tag">#全自動で送信</span><span class="tag">#確認モード</span><span class="tag">#営業文づくり</span><span class="tag">#送り先リスト</span><span class="tag">#返信の記録</span><span class="tag">#毎週の報告</span>
+  <span class="tag">#フォーム営業</span><span class="tag">#問い合わせフォーム</span><span class="tag">#全自動で送信</span><span class="tag">#確認モード</span><span class="tag">#営業文づくり</span><span class="tag">#送り先リスト</span><span class="tag">#返信の記録</span><span class="tag">#毎週の報告</span>
+</div></div>
+
+<section class="sec hero grid-bg" id="s-top" aria-labelledby="hero-h">
+  <p class="kicker">＼ 中小企業のための、フォーム営業代行 ／</p>
+  <h1 id="hero-h">営業文は、<br><span>ぼくが届ける</span>。</h1>
+  <p class="sub">あなたは返信を見るだけ。</p>
+  <div class="hero-row">
+    <div class="term" aria-hidden="true">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div><span class="y">$</span> <span class="typing">sasareach --start</span><span class="caret"></span></div>
+      <div class="log l1">送り先を探しています… <span class="y">93社</span></div>
+      <div class="log l2">フォームに入力しています…</div>
+      <div class="log l3"><span class="y">&gt;</span> 64社に送信完了</div>
+      <div class="log l4"><span class="y">&gt;</span> 28社で到達を確認</div>
     </div>
+    <img class="panda bob" src="img/panda.webp" width="320" height="312" alt="" fetchpriority="high">
+  </div>
+  <div class="stats">
+    <div class="stat"><b><span class="count" data-to="64">64</span><small>社</small></b><span>に送信完了</span></div>
+    <div class="stat"><b>約<span class="count" data-to="7">7</span><small>割</small></b><span>の送信成功率</span></div>
+    <div class="stat"><b><span class="count" data-to="28">28</span><small>社</small></b><span>で到達を確認</span></div>
+  </div>
+  <p class="small" style="text-align:center">東京の運送会社93社への送信テストより（2026年10月）</p>
+  <a class="btn pulse" href="#contact"><b>1ヶ月 無料で試してみる</b><small>申込書を交わすまで、料金は一切かかりません</small></a>
+</section>
+
+<section class="sec beige" id="s-worry" aria-labelledby="worry-h">
+  <h2 id="worry-h" class="rise">こんなお悩み、ありませんか？</h2>
+  <div class="bubble rise">テレアポは断られてばかりで、心が折れる</div>
+  <div class="bubble r rise">本業が忙しくて、新しい営業まで手が回らない</div>
+  <div class="bubble rise">営業を外に頼むと、高いし縛りが不安</div>
+  <div class="down" aria-hidden="true">▼</div>
+  <p class="answer rise">その営業、<br><span class="mark">ササリーチにまかせてください</span></p>
+</section>
+
+<div class="ticker dark" aria-hidden="true"><div class="track">
+  <span class="how">◆ How it works?</span><span class="how">◆ 探す</span><span class="how">◆ 送る</span><span class="how">◆ 記録する</span><span class="how">◆ How it works?</span><span class="how">◆ 探す</span><span class="how">◆ 送る</span><span class="how">◆ 記録する</span>
+  <span class="how">◆ How it works?</span><span class="how">◆ 探す</span><span class="how">◆ 送る</span><span class="how">◆ 記録する</span><span class="how">◆ How it works?</span><span class="how">◆ 探す</span><span class="how">◆ 送る</span><span class="how">◆ 記録する</span>
+</div></div>
+
+<section class="sec grid-bg" id="s-about" aria-labelledby="about-h" style="border-top:0">
+  <p class="eyebrow">— WHAT IS —</p>
+  <h2 id="about-h" class="rise">ササリーチとは</h2>
+  <p class="lead-box rise">営業先の問い合わせフォームに、<br>お客様の営業文を自動で送ります</p>
+  <div class="card step lift rise"><div class="no">1</div><div><h3>探す</h3><p>業種と地域から、送り先の会社とホームページを集めます</p></div></div>
+  <div class="card step lift rise"><div class="no">2</div><div><h3>送る</h3><p>問い合わせフォームを見つけて、名前・連絡先・本文を入れて送ります</p></div></div>
+  <div class="card step lift rise"><div class="no">3</div><div><h3>記録する</h3><p>送れた会社、送れなかった理由、届いた返信をシートに残します</p></div></div>
+</section>
+
+<section class="sec dark" id="s-result" aria-labelledby="res-h">
+  <p class="eyebrow">— RESULT —</p>
+  <h2 id="res-h" class="rise">試した会社の<span class="big">約7割</span>に、<br>送信できています</h2>
+  <div class="report rise">
+    <div class="fn">send_report.csv</div>
+    <div class="bar-row"><div class="lab"><span>送信を試した会社</span><span>93社</span></div><div class="bar"><i style="--w:100%;background:var(--navy)"></i></div></div>
+    <div class="bar-row"><div class="lab"><span>送信完了（約7割）</span><span>64社</span></div><div class="bar"><i style="--w:69%;background:var(--red)"></i></div></div>
+    <div class="bar-row"><div class="lab"><span>自動返信で到達を確認</span><span>28社</span></div><div class="bar"><i style="--w:30%;background:var(--orange)"></i></div></div>
+  </div>
+  <p class="note">東京の運送会社への送信テスト（約2週間）。送れなかった会社の多くは、フォームがない・営業お断り・ロボット確認ありの会社です。</p>
+</section>
+
+<section class="sec grid-bg" id="s-mode" aria-labelledby="mode-h">
+  <p class="eyebrow">— 2 MODES —</p>
+  <h2 id="mode-h" class="rise">まず全自動で送り、<br>残りを人の目で仕上げます</h2>
+  <div class="card win rise">
+    <div class="win-bar"><span>auto_mode.exe</span><span class="y">● 3台で同時に送信中</span></div>
+    <div class="win-body">
+      <div class="kind">① 全自動モード（メイン）</div>
+      <h3>1台のPCで、AIが3台同時に働きます</h3>
+      <div class="ais" aria-hidden="true"><div class="ai">AI-1<div class="bar"><i></i></div></div><div class="ai">AI-2<div class="bar"><i></i></div></div><div class="ai">AI-3<div class="bar"><i></i></div></div></div>
+      <p class="muted">問い合わせフォームを探す → 入力する → 送信する → 完了画面を確かめて記録する。ここまでを、人の手を使わずに進めます。1台のPCの中でAIが3台同時に動くので、1台ずつ送るより約3倍の速さです。夜も休みの日も送り続けます。</p>
+      <p class="tip">「営業お断り」と書いてある会社や、フォームのない会社は自動で飛ばします。</p>
+    </div>
+  </div>
+  <div class="down" aria-hidden="true">▼</div>
+  <div class="card win rise">
+    <div class="win-bar yel"><span>check_mode.exe</span><span>人が最後に1クリック</span></div>
+    <div class="win-body">
+      <div class="kind">② 確認モード（仕上げ）</div>
+      <h3>全自動で送れなかった会社は、人の目で1社ずつ仕上げます</h3>
+      <img src="img/form-demo.webp" alt="確認モードの画面（実際の送信テストのもの）" loading="lazy">
+      <p class="small">画面は実際の送信テストのものです（会社名・名前などはぼかしています）。</p>
+      <p class="muted">「私はロボットではありません」のようなロボット確認があるフォームや、形が特殊なフォームは、全自動では送りません。確認モードでは、入力まではAIが済ませて、最後のチェックと送信ボタンだけを人が押します。ロボット確認も人がその場でチェックを入れるので、全自動では届かない会社にも送れます。</p>
+    </div>
+  </div>
+  <div class="chain rise"><div class="c1">① 全自動で一気に送る</div><div class="c2">② 送れなかった会社だけ確認モードで仕上げる</div><div class="c3">送れる会社には、ほぼ全部届く</div></div>
+</section>
+
+<section class="sec beige" id="s-flow" aria-labelledby="flow-h">
+  <p class="eyebrow">— FLOW —</p>
+  <h2 id="flow-h" class="rise">お客様の作業は、<br><span class="mark">最初のヒアリングと返信への対応だけ</span>です</h2>
+  <div class="flow rise"><div class="rail"><div class="num">01</div><div class="line"></div></div><div class="card"><h3>ヒアリング<span class="who you">お客様</span></h3><p>会社情報・売りたいもの・送り先を教える（約30分）</p></div></div>
+  <div class="flow rise"><div class="rail"><div class="num">02</div><div class="line"></div></div><div class="card"><h3>準備<span class="who">こちら</span></h3><p>文面を作り、お客様が確認。送り先リストを作る</p></div></div>
+  <div class="flow rise"><div class="rail"><div class="num">03</div><div class="line"></div></div><div class="card"><h3>送信<span class="who">こちら</span></h3><p>自動で毎日送る。送れない会社は理由を記録</p></div></div>
+  <div class="flow rise"><div class="rail"><div class="num">04</div><div class="line"></div></div><div class="card"><h3>返信対応<span class="who you">お客様</span></h3><p>返信はお客様のメールに届く。商談はお客様が</p></div></div>
+  <div class="flow rise"><div class="rail"><div class="num">05</div><div class="line"></div></div><div class="card"><h3>毎週の報告<span class="who">こちら</span></h3><p>送信数と反応をまとめ、文面と送り先を見直す</p></div></div>
+</section>
+
+<section class="sec grid-bg" id="s-eight" aria-labelledby="eight-h">
+  <p class="eyebrow" style="letter-spacing:0">最初に教えていただくこと</p>
+  <h2 id="eight-h" class="rise">この8つが分かれば、<br>すぐに準備を始められます</h2>
+  <div class="sheet rise">
+    <div class="fn">hearing_sheet.md</div>
+    <ol><li>会社名・担当者名・住所・電話</li><li>返信を受け取るメールアドレス</li><li>ホームページ・SNS</li><li>売りたいもの（1行で）</li><li>強み・実績</li><li>送りたい相手（業種・地域）</li><li>送らない相手（取引先など）</li><li>文面で伝えたいこと・特典</li></ol>
   </div>
 </section>
 
-<section class="bg-beige" aria-labelledby="worry-h">
-  <div class="wrap">
-    <p class="label" id="worry-h">こんなお悩み、ありませんか？</p>
-    <div class="grid">
-      <div class="worry"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E60012" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>テレアポは断られてばかりで、心が折れる</div>
-      <div class="worry"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E60012" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>本業が忙しくて、新しい営業まで手が回らない</div>
-      <div class="worry"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E60012" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>営業を外に頼むと、高いし縛りが不安</div>
-    </div>
-    <p class="solve">その営業、<span class="mark">ササリーチにまかせてください</span></p>
+<section class="sec white" id="s-rule" aria-labelledby="rule-h">
+  <p class="eyebrow">— RULES —</p>
+  <h2 id="rule-h" class="rise">送り方はお客様が決められます。<br>会社名を守るルールは変えません</h2>
+  <div class="card can rise"><h3>お客様が決められる</h3><ul><li>送る業種・地域</li><li>1日の件数・送る時間帯</li><li>文面・件名</li><li>支店や大手、英語のサイトにも送るか</li></ul></div>
+  <div class="rule rise"><div class="rn"><small>RULE</small><b>01</b></div><p>「営業お断り」の会社には送らない</p></div>
+  <div class="rule rise"><div class="rn"><small>RULE</small><b>02</b></div><p>ロボット確認をすり抜けない</p></div>
+  <div class="rule rise"><div class="rn"><small>RULE</small><b>03</b></div><p>うその答えを選ばない</p></div>
+  <div class="rule rise"><div class="rn"><small>RULE</small><b>04</b></div><p>断られた会社には二度と送らない</p></div>
+</section>
+
+<section class="sec beige" id="s-price" aria-labelledby="after-h">
+  <p class="eyebrow" style="letter-spacing:0">2ヶ月目から</p>
+  <h2 id="after-h" class="rise">続けるかどうかは、結果を見てから。</h2>
+  <p class="lead">契約は1ヶ月ごと、縛りなし</p>
+  <ol class="steps4 rise"><li>無料期間の結果をまとめてお伝え</li><li>続けるか・件数・送り先を決める</li><li>件数に合わせて料金をご提示</li><li>続けるときだけ、申込書を交わす</li></ol>
+  <div class="price rise">
+    <div class="t">2ヶ月目からの料金の目安</div>
+    <div class="yen">月4万円<small>（税別）</small></div>
+    <div class="cond">1日300件まで送る場合</div>
+    <p>件数や送り先によって変わります。無料期間の結果を見てから、正式な料金をお伝えします。</p>
   </div>
 </section>
 
-<section aria-labelledby="about-h">
-  <div class="wrap">
-    <p class="label">ササリーチとは</p>
-    <h2 id="about-h">営業先の問い合わせフォームに、お客様の営業文を自動で送ります</h2>
-    <div class="grid feat-grid">
-      <div class="card feature"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E60012" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><div><h3>1. 探す</h3><p>業種と地域から、送り先の会社とホームページを集めます</p></div></div>
-      <div class="card feature"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E60012" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><div><h3>2. 送る</h3><p>問い合わせフォームを見つけて、名前・連絡先・本文を入れて送ります</p></div></div>
-      <div class="card feature"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E60012" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div><h3>3. 記録する</h3><p>送れた会社、送れなかった理由、届いた返信をシートに残します</p></div></div>
-    </div>
-  </div>
+<section class="sec grid-bg" id="s-faq" aria-labelledby="faq-h">
+  <p class="eyebrow">— FAQ —</p>
+  <h2 id="faq-h" class="rise">よくある質問</h2>
+  <details class="card faq rise" open><summary>本当に1ヶ月無料ですか？</summary><div class="a">はい。申込書を交わすまで、料金は一切かかりません。</div></details>
+  <details class="card faq rise"><summary>2ヶ月目からの料金はいくらですか？</summary><div class="a">目安は月4万円・税別（1日300件まで送る場合）です。件数や送り先によって変わるので、無料期間の結果を見てから正式な料金をお伝えします。</div></details>
+  <details class="card faq rise"><summary>自分でやることは何ですか？</summary><div class="a">最初のヒアリング（約30分）と、届いた返信への対応だけです。</div></details>
+  <details class="card faq rise"><summary>会社の評判が悪くなりませんか？</summary><div class="a">「営業お断り」と書いてある会社や、一度断られた会社には送りません。ロボット確認をすり抜けることもしません。</div></details>
+  <details class="card faq rise"><summary>2ヶ月目からの契約はどうなりますか？</summary><div class="a">無料期間の結果を見てから、続けるかどうかを決めていただけます。契約は1ヶ月ごとで、縛りはありません。</div></details>
 </section>
 
-<section class="results" aria-labelledby="res-h">
-  <div class="wrap">
-    <p class="label">これまでの実績</p>
-    <h2 id="res-h">試した会社の<span style="color:#C8000F">約7割</span>に、送信できています</h2>
-    <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-      <div class="res"><b>93<small>社</small></b><span>送信を試した会社</span></div>
-      <div class="res hot"><b>64<small>社</small></b><span>送信完了（約7割）</span></div>
-      <div class="res"><b>28<small>社</small></b><span>自動返信で到達を確認</span></div>
-    </div>
-    <p style="margin:18px 0 0;font-size:14px">東京の運送会社への送信テスト（約2週間）。送れなかった会社の多くは、フォームがない・営業お断り・ロボット確認ありの会社です。</p>
-  </div>
-</section>
-
-<section aria-labelledby="mode-h">
-  <div class="wrap">
-    <p class="label">2つの送り方</p>
-    <h2 id="mode-h">まず全自動で送り、<span class="mark">残りを人の目で仕上げます</span></h2>
-    <div class="modes">
-      <div class="mode main">
-        <span class="tag auto">① 全自動モード（メイン）</span>
-        <h3>1台のPCで、AIが3台同時に働きます</h3>
-        <div class="pc"><svg viewBox="0 0 600 310" role="img" aria-label="1台のPCの中で、ササリーチのパンダ（AI）が3台同時に、それぞれ別の会社のフォームに入力して送信しているイメージ">
-  <rect x="14" y="8" width="572" height="262" rx="18" fill="#1F2A3C"/>
-  <rect x="28" y="22" width="544" height="234" rx="10" fill="#FFF6C7"/>
-  <rect x="270" y="270" width="60" height="22" fill="#1F2A3C"/><rect x="215" y="290" width="170" height="12" rx="6" fill="#1F2A3C"/>
-  <g clip-path="inset(0)">
-  <g transform="translate(36,0)">
-    <rect x="70" y="40" width="96" height="140" rx="10" fill="#fff" stroke="#1A1A1A" stroke-width="3"/>
-    <rect x="82" y="56" width="72" height="9" rx="3" fill="#E6DFD2"/>
-    <rect x="82" y="74" width="72" height="9" rx="3" fill="#E6DFD2"/>
-    <rect x="82" y="92" width="72" height="28" rx="4" fill="#E6DFD2"/>
-    <rect x="92" y="138" width="52" height="24" rx="12" fill="#E60012"/>
-    <path d="M107 150 l7 6 l13 -13" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <image href="img/panda.webp" x="-16" y="100" width="150" height="146"/>
-    <rect x="-2" y="34" width="58" height="26" rx="13" fill="#1A1A1A"/>
-    <text x="27" y="52" text-anchor="middle" font-size="15" font-weight="900" fill="#FFE14D">AI 1</text>
-  </g>
-  <g transform="translate(216,0)">
-    <rect x="70" y="40" width="96" height="140" rx="10" fill="#fff" stroke="#1A1A1A" stroke-width="3"/>
-    <rect x="82" y="56" width="72" height="9" rx="3" fill="#E6DFD2"/>
-    <rect x="82" y="74" width="72" height="9" rx="3" fill="#E6DFD2"/>
-    <rect x="82" y="92" width="72" height="28" rx="4" fill="#E6DFD2"/>
-    <rect x="92" y="138" width="52" height="24" rx="12" fill="#E60012"/>
-    <path d="M107 150 l7 6 l13 -13" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <image href="img/panda.webp" x="-16" y="100" width="150" height="146"/>
-    <rect x="-2" y="34" width="58" height="26" rx="13" fill="#1A1A1A"/>
-    <text x="27" y="52" text-anchor="middle" font-size="15" font-weight="900" fill="#FFE14D">AI 2</text>
-  </g>
-  <g transform="translate(396,0)">
-    <rect x="70" y="40" width="96" height="140" rx="10" fill="#fff" stroke="#1A1A1A" stroke-width="3"/>
-    <rect x="82" y="56" width="72" height="9" rx="3" fill="#E6DFD2"/>
-    <rect x="82" y="74" width="72" height="9" rx="3" fill="#E6DFD2"/>
-    <rect x="82" y="92" width="72" height="28" rx="4" fill="#E6DFD2"/>
-    <rect x="92" y="138" width="52" height="24" rx="12" fill="#E60012"/>
-    <path d="M107 150 l7 6 l13 -13" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <image href="img/panda.webp" x="-16" y="100" width="150" height="146"/>
-    <rect x="-2" y="34" width="58" height="26" rx="13" fill="#1A1A1A"/>
-    <text x="27" y="52" text-anchor="middle" font-size="15" font-weight="900" fill="#FFE14D">AI 3</text>
-  </g>
-  </g>
-</svg></div>
-        <p>問い合わせフォームを探す → 入力する → 送信する → 完了画面を確かめて記録する。ここまでを、人の手を使わずに進めます。1台のPCの中でAIが3台同時に動くので、1台ずつ送るより約3倍の速さです。夜も休みの日も送り続けます。</p>
-        <p class="small">「営業お断り」と書いてある会社や、フォームのない会社は自動で飛ばします。</p>
-      </div>
-      <div class="mode">
-        <span class="tag check">② 確認モード（仕上げ）</span>
-        <h3>全自動で送れなかった会社は、人の目で1社ずつ仕上げます</h3>
-        <figure class="shot" style="margin:0">
-          <img src="img/form-demo.webp" width="1255" height="599" alt="確認モードで、AIが問い合わせフォームに名前・メール・会社名などを入力し終えた画面" loading="lazy">
-        </figure>
-        <p>「私はロボットではありません」のようなロボット確認があるフォームや、形が特殊なフォームは、全自動では送りません。確認モードでは、入力まではAIが済ませて、最後のチェックと送信ボタンだけを人が押します。ロボット確認も人がその場でチェックを入れるので、全自動では届かない会社にも送れます。</p>
-        <p class="small">画面は実際の送信テストのものです（会社名・名前などはぼかしています）。</p>
-      </div>
-    </div>
-    <div class="route" aria-label="送り方の流れ">
-      <div>① 全自動で一気に送る</div><span aria-hidden="true">→</span>
-      <div>② 送れなかった会社だけ確認モードで仕上げる</div><span aria-hidden="true">→</span>
-      <div class="goal">送れる会社には、ほぼ全部届く</div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-beige" aria-labelledby="flow-h">
-  <div class="wrap">
-    <p class="label">1ヶ月の流れ</p>
-    <h2 id="flow-h">お客様の作業は、<span class="mark">最初のヒアリングと返信への対応だけ</span>です</h2>
-    <div class="grid">
-      <div class="flow you"><div class="num">1</div><div><h3>ヒアリング<span class="who">お客様</span></h3><p>会社情報・売りたいもの・送り先を教える（約30分）</p></div></div>
-      <div class="flow"><div class="num">2</div><div><h3>準備<span class="who">こちら</span></h3><p>文面を作り、お客様が確認。送り先リストを作る</p></div></div>
-      <div class="flow"><div class="num">3</div><div><h3>送信<span class="who">こちら</span></h3><p>自動で毎日送る。送れない会社は理由を記録</p></div></div>
-      <div class="flow you"><div class="num">4</div><div><h3>返信対応<span class="who">お客様</span></h3><p>返信はお客様のメールに届く。商談はお客様が</p></div></div>
-      <div class="flow"><div class="num">5</div><div><h3>毎週の報告<span class="who">こちら</span></h3><p>送信数と反応をまとめ、文面と送り先を見直す</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="eight-h">
-  <div class="wrap">
-    <p class="label">最初に教えていただくこと</p>
-    <h2 id="eight-h">この8つが分かれば、すぐに準備を始められます</h2>
-    <ol class="grid eight">
-      <li><b>1</b>会社名・担当者名・住所・電話</li>
-      <li><b>2</b>返信を受け取るメールアドレス</li>
-      <li><b>3</b>ホームページ・SNS</li>
-      <li><b>4</b>売りたいもの（1行で）</li>
-      <li><b>5</b>強み・実績</li>
-      <li><b>6</b>送りたい相手（業種・地域）</li>
-      <li><b>7</b>送らない相手（取引先など）</li>
-      <li><b>8</b>文面で伝えたいこと・特典</li>
-    </ol>
-  </div>
-</section>
-
-<section class="bg-beige" aria-labelledby="rule-h">
-  <div class="wrap">
-    <p class="label">守るルール</p>
-    <h2 id="rule-h">送り方はお客様が決められます。会社名を守るルールは変えません</h2>
-    <div class="grid rules">
-      <div class="card rule"><h3>お客様が決められる</h3><ul><li>送る業種・地域</li><li>1日の件数・送る時間帯</li><li>文面・件名</li><li>支店や大手、英語のサイトにも送るか</li></ul></div>
-      <div class="card rule fixed"><h3>変えないルール</h3><ul><li>「営業お断り」の会社には送らない</li><li>ロボット確認をすり抜けない</li><li>うその答えを選ばない</li><li>断られた会社には二度と送らない</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="after-h">
-  <div class="wrap">
-    <p class="label">2ヶ月目から</p>
-    <h2 id="after-h">続けるかどうかは、結果を見てから。<span class="mark">契約は1ヶ月ごと、縛りなし</span></h2>
-    <ol class="after">
-      <li>無料期間の結果をまとめてお伝え</li>
-      <li>続けるか・件数・送り先を決める</li>
-      <li>件数に合わせて料金をご提示</li>
-      <li>続けるときだけ、申込書を交わす</li>
-    </ol>
-    <div class="price">
-      <p class="p-label">2ヶ月目からの料金の目安</p>
-      <p class="p-num"><span class="mark">月4万円</span><small style="font-size:.45em;margin-left:6px">（税別）</small></p>
-      <p class="p-sub">1日300件まで送る場合</p>
-      <p class="p-note">件数や送り先によって変わります。無料期間の結果を見てから、正式な料金をお伝えします。</p>
-    </div>
-  </div>
-</section>
-
-<section class="bg-beige faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <p class="label">よくある質問</p>
-    <h2 id="faq-h">よくある質問</h2>
-    <div class="grid">
-      <details><summary>本当に1ヶ月無料ですか？</summary><p>はい。申込書を交わすまで、料金は一切かかりません。</p></details>
-      <details><summary>2ヶ月目からの料金はいくらですか？</summary><p>目安は月4万円・税別（1日300件まで送る場合）です。件数や送り先によって変わるので、無料期間の結果を見てから正式な料金をお伝えします。</p></details>
-      <details><summary>自分でやることは何ですか？</summary><p>最初のヒアリング（約30分）と、届いた返信への対応だけです。</p></details>
-      <details><summary>会社の評判が悪くなりませんか？</summary><p>「営業お断り」と書いてある会社や、一度断られた会社には送りません。ロボット確認をすり抜けることもしません。</p></details>
-      <details><summary>2ヶ月目からの契約はどうなりますか？</summary><p>無料期間の結果を見てから、続けるかどうかを決めていただけます。契約は1ヶ月ごとで、縛りはありません。</p></details>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="col-h">
-  <div class="wrap">
-    <p class="label">コラム</p>
-    <h2 id="col-h">noteで、フォーム営業の<span class="mark">本物の数字</span>を書いています</h2>
-    <ul class="cols"><!-- note-cols:start -->
+<section class="sec white" id="s-column" aria-labelledby="col-h">
+  <p class="eyebrow">— COLUMN —</p>
+  <h2 id="col-h" class="rise">noteで、フォーム営業の<br><span class="mark">本物の数字</span>を書いています</h2>
+  <ul class="cols"><!-- note-cols:start -->
       <li class="col"><a href="https://note.com/aidx_consultant/n/n787ef06ed0c8" target="_blank" rel="noopener">
         <img src="https://assets.st-note.com/production/uploads/images/331237236/rectangle_large_type_2_5c520b0f74f7cc80fd0633bec84af735.png?width=800" width="640" height="335" alt="" loading="lazy">
         <span><span class="c-date">2026.11.03</span><span class="c-title">【例文あり】フォーム営業の文面の書き方｜1,943社に送ってわかった「読まれる文面・読まれない文面」</span><span class="c-desc">前回の記事で、東京23区の運送会社1,943社にフォーム営業を送った結果を出しました。フォームがある会社には94%届いた一方で、開封率は4.6%、返信はお断りが中心でした。</span></span>
@@ -427,33 +450,91 @@ footer .op:last-child{margin:0}
         <span><span class="c-date">2026.11.02</span><span class="c-title">自己紹介｜はじめてのnote</span><span class="c-desc">ササリーチを作った人の自己紹介です。なぜ「先に結果を見てもらう」やり方にしているのか。</span></span>
       </a></li>
       <!-- note-cols:end --></ul>
-    <p class="more-note"><a href="https://note.com/aidx_consultant" target="_blank" rel="noopener">noteをもっと読む →</a></p>
-  </div>
+  <p class="more-note"><a href="https://note.com/aidx_consultant" target="_blank" rel="noopener">noteをもっと読む →</a></p>
 </section>
 
-<section class="cta" id="contact" aria-labelledby="cta-h">
-  <div class="wrap">
-    <div class="bubble">めんどうな営業は、<br>ぼくにまかせて！</div>
-    <img src="img/sasareach-logo.webp" width="1200" height="800" alt="" loading="lazy">
-    <p style="margin:12px 0 0;font-size:19px;font-weight:700;color:var(--sub)">まずは、気軽に試してみませんか</p>
-    <h2 id="cta-h" class="big">1ヶ月<br><span>無料</span></h2>
-    <p class="cta-text">準備も送信も、こちらで行います。<br>お客様は、届いた返信を見るだけ</p>
-    <a class="btn" href="https://calendar.app.google/Z2iBAVEG55RNhJNd9" target="_blank" rel="noopener">無料トライアルの面談を予約する</a>
-    <p class="note" style="margin:14px 0 0">カレンダーから、空いている日時を選ぶだけで予約できます</p>
-    <div class="pill">申込書を交わすまで、料金は一切かかりません</div>
-  </div>
+<section class="sec red cta" id="contact" aria-labelledby="cta-h">
+  <img class="panda bob" src="img/panda.webp" width="320" height="312" alt="" loading="lazy">
+  <h2 id="cta-h" class="rise">めんどうな営業は、<br>ぼくにまかせて！</h2>
+  <p style="font-size:14px;font-weight:700">まずは、気軽に試してみませんか</p>
+  <div class="free pulse"><span>1ヶ月</span><b>無料</b></div>
+  <p style="font-size:13px;line-height:1.7">準備も送信も、こちらで行います。<br>お客様は、届いた返信を見るだけ</p>
+  <a class="btn" href="https://calendar.app.google/Z2iBAVEG55RNhJNd9" target="_blank" rel="noopener"><b>無料トライアルの面談を予約する</b></a>
+  <p class="fine">カレンダーから、空いている日時を選ぶだけで予約できます<br>申込書を交わすまで、料金は一切かかりません</p>
 </section>
 
 </main>
 
+<aside class="side right">
+  <nav class="side-in toc" aria-label="目次">
+    <div class="toc-h">INDEX</div>
+    <a href="#s-top"><span>01</span>TOP</a>
+    <a href="#s-worry"><span>02</span>こんなお悩み</a>
+    <a href="#s-about"><span>03</span>ササリーチとは</a>
+    <a href="#s-result"><span>04</span>これまでの実績</a>
+    <a href="#s-mode"><span>05</span>2つの送り方</a>
+    <a href="#s-flow"><span>06</span>1ヶ月の流れ</a>
+    <a href="#s-rule"><span>07</span>守るルール</a>
+    <a href="#s-price"><span>08</span>料金の目安</a>
+    <a href="#s-faq"><span>09</span>よくある質問</a>
+    <a href="#s-column"><span>10</span>コラム</a>
+  </nav>
+</aside>
+
+</div>
+
 <footer>
-  <div class="wrap">
-    <p class="op"><b>SNSでも発信しています</b></p>
-    <ul class="sns" aria-label="SNS"><li><a href="https://x.com/AIDXconsultant" target="_blank" rel="noopener me">X</a></li><li><a href="https://www.instagram.com/sinyaa0103/" target="_blank" rel="noopener me">Instagram</a></li><li><a href="https://www.facebook.com/yutaro.shinya.5" target="_blank" rel="noopener me">Facebook</a></li><li><a href="https://www.threads.com/@sinyaa0103" target="_blank" rel="noopener me">Threads</a></li><li><a href="https://note.com/aidx_consultant" target="_blank" rel="noopener me">note</a></li></ul>
-    <p class="op"><b>運営者情報</b><br>ササリーチ（SasaReach）｜運営：新谷 優太郎（個人事業）｜東京都江東区</p>
-    <p class="op"><a href="/privacy/">プライバシーポリシー</a></p>
-  </div>
+  <p class="op"><b>SNSでも発信しています</b></p>
+  <ul class="sns" aria-label="SNS"><li><a href="https://x.com/AIDXconsultant" target="_blank" rel="noopener me">X</a></li><li><a href="https://www.instagram.com/sinyaa0103/" target="_blank" rel="noopener me">Instagram</a></li><li><a href="https://www.facebook.com/yutaro.shinya.5" target="_blank" rel="noopener me">Facebook</a></li><li><a href="https://www.threads.com/@sinyaa0103" target="_blank" rel="noopener me">Threads</a></li><li><a href="https://note.com/aidx_consultant" target="_blank" rel="noopener me">note</a></li></ul>
+  <p class="op"><b>運営者情報</b><br>ササリーチ（SasaReach）｜運営：新谷 優太郎（個人事業）｜東京都江東区</p>
+  <p class="op"><a href="/privacy/">プライバシーポリシー</a></p>
 </footer>
+
+<div class="spbar" id="spbar"><a href="#contact">1ヶ月 無料で試してみる</a></div>
+
+<script>
+// 動き：スクロールで下からふわっと出す／数字のカウントアップ／目次の今いる場所／スマホの固定ボタン
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = 'IntersectionObserver' in window;
+  // ふわっと
+  var rises = [].slice.call(document.querySelectorAll('.rise, .report'));
+  if (!io || reduce) { rises.forEach(function (el) { el.classList.add('in'); }); }
+  else {
+    var ob = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ob.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    rises.forEach(function (el) { ob.observe(el); });
+  }
+  // カウントアップ
+  if (!reduce) {
+    [].forEach.call(document.querySelectorAll('.count'), function (el) {
+      var to = +el.getAttribute('data-to'), t0 = null; el.textContent = '0';
+      function step(t) { t0 = t0 || t; var k = Math.min((t - t0) / 1200, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }
+      setTimeout(function () { requestAnimationFrame(step); }, 300);
+    });
+  }
+  // 目次：今読んでいるセクションを赤くする
+  var links = [].slice.call(document.querySelectorAll('.toc a'));
+  if (io && links.length) {
+    var map = {}; links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting && map[e.target.id]) { links.forEach(function (a) { a.classList.remove('on'); }); map[e.target.id].classList.add('on'); } });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) so.observe(s); });
+  }
+  // スマホ：最初の画面を過ぎたら下に申込ボタンを出す（最後の申込の場所では隠す）
+  var bar = document.getElementById('spbar'), hero = document.getElementById('s-top'), cta = document.getElementById('contact');
+  if (io && bar && hero && cta) {
+    var heroOut = false, ctaIn = false;
+    var bo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.target === hero) heroOut = !e.isIntersecting && e.boundingClientRect.top < 0; if (e.target === cta) ctaIn = e.isIntersecting; });
+      bar.classList.toggle('show', heroOut && !ctaIn);
+    });
+    bo.observe(hero); bo.observe(cta);
+  }
+})();
+</script>
 
 <script>
 // 面談予約（Googleカレンダー）へのボタンが押されたら「見込み顧客」として数える
