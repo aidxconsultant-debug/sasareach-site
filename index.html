@@ -35,12 +35,37 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://sasareach.com/#org",
+      "name": "ササリーチ（SasaReach）",
+      "alternateName": ["ササリーチ", "SasaReach"],
+      "url": "https://sasareach.com/",
+      "logo": "https://sasareach.com/img/sasareach-logo.jpg",
+      "description": "中小企業のためのフォーム営業代行。営業先の問い合わせフォームに、お客様の営業文を自動で送ります。",
+      "founder": {"@id": "https://sasareach.com/#founder"},
+      "address": {"@type": "PostalAddress", "addressRegion": "東京都", "addressLocality": "江東区", "addressCountry": "JP"},
+      "sameAs": ["https://note.com/aidx_consultant", "https://x.com/AIDXconsultant"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sasareach.com/#founder",
+      "name": "新谷優太郎",
+      "jobTitle": "ササリーチ運営者",
+      "worksFor": {"@id": "https://sasareach.com/#org"},
+      "sameAs": ["https://x.com/AIDXconsultant", "https://www.instagram.com/sinyaa0103/", "https://www.facebook.com/yutaro.shinya.5", "https://www.threads.com/@sinyaa0103", "https://note.com/aidx_consultant"]
+    },
+    {
       "@type": "Service",
       "name": "ササリーチ（SasaReach）",
       "serviceType": "フォーム営業代行",
       "description": "営業先の問い合わせフォームに、お客様の営業文を自動で送るフォーム営業代行サービス。1ヶ月無料トライアルあり。",
       "areaServed": "JP",
-      "provider": {"@type": "Person", "name": "新谷優太郎", "sameAs": ["https://x.com/AIDXconsultant", "https://www.instagram.com/sinyaa0103/", "https://www.facebook.com/yutaro.shinya.5", "https://www.threads.com/@sinyaa0103", "https://note.com/aidx_consultant"]},
+      "provider": {"@id": "https://sasareach.com/#org"},
+      "audience": {"@type": "BusinessAudience", "audienceType": "中小企業・個人事業主"},
+      "offers": [
+        {"@type": "Offer", "name": "1ヶ月無料トライアル", "price": "0", "priceCurrency": "JPY", "description": "申込書を交わすまで料金はかかりません。送り先リスト作りとPCへの設定はこちらで行います。"},
+        {"@type": "Offer", "name": "2ヶ月目からの料金の目安", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "40000", "priceCurrency": "JPY", "unitText": "月", "valueAddedTaxIncluded": false}, "description": "1日300件まで送る場合の目安。件数や送り先によって変わります。契約は1ヶ月ごとで縛りなし。"}
+      ],
       "url": "https://sasareach.com/",
       "image": "https://sasareach.com/img/ogp.jpg"
     },
@@ -124,7 +149,8 @@ main{background:#fff;border-left:2px solid var(--ink);border-right:2px solid var
 .hero{padding:32px 20px 28px;display:flex;flex-direction:column;gap:18px;border:0}
 .hero .kicker{text-align:center;font-size:14px;font-weight:700}
 .hero h1{font-size:48px;line-height:1.25;font-weight:900;letter-spacing:.02em}
-.hero h1 span{color:var(--red)}
+.hero h1 .hl{color:var(--red)}
+.hero h1 .kicker{display:block;margin-bottom:18px;font-size:14px;line-height:1.7;font-weight:700;letter-spacing:0;color:var(--ink)}
 .hero .sub{align-self:flex-start;padding:6px 12px;background:var(--ink);color:#fff;font-size:18px;font-weight:700}
 .hero-row{display:flex;gap:12px;align-items:flex-end}
 .term{flex:1 1 auto;min-width:0;background:var(--ink);border-radius:12px;padding:12px 14px 14px;font-family:var(--mono);font-size:12px;line-height:1.8;color:#fff;box-shadow:4px 4px 0 var(--red)}
@@ -306,8 +332,7 @@ footer .op a{color:var(--yellow)}
 </div></div>
 
 <section class="sec hero grid-bg" id="s-top" aria-labelledby="hero-h">
-  <p class="kicker">＼ 中小企業のための、フォーム営業代行 ／</p>
-  <h1 id="hero-h">営業文は、<br><span>ぼくが届ける</span>。</h1>
+  <h1 id="hero-h"><span class="kicker">＼ 中小企業のための、フォーム営業代行 ／</span>営業文は、<br><span class="hl">ぼくが届ける</span>。</h1>
   <p class="sub">あなたはボタンを押すだけ。</p>
   <div class="hero-row">
     <div class="term" aria-hidden="true">
