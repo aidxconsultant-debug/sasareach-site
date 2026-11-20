@@ -1,0 +1,19 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>お問い合わせ｜デモ介護サービス株式会社</title><link rel="stylesheet" href="../demo.css"></head><body><div class="demo">これはササリーチの動作テスト用の<b>架空の会社</b>です。入力した内容はどこにも送られません。</div><header><b>デモ介護サービス株式会社</b><nav><a href="./">トップ</a><a href="contact.html">お問い合わせ</a></nav></header><main><h1>お問い合わせ</h1>
+<form id="f" action="thanks.html" method="get">
+<div id="input">
+<label>法人名</label><input type="text" name="corp">
+<label>ご担当者名<span class="req">必須</span></label><input type="text" name="tanto" required>
+<label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required>
+<label>ご用件<span class="req">必須</span></label><textarea name="naiyou" required></textarea>
+<button type="button" id="toconfirm">入力内容を確認する</button></div>
+<div id="confirm" style="display:none"><p>以下の内容で送信します。よろしければ「送信する」を押してください。</p><table id="ct"></table>
+<button type="button" id="back">戻る</button> <button type="submit">送信する</button></div>
+</form>
+<script>
+const f=document.getElementById('f');
+document.getElementById('toconfirm').onclick=()=>{if(!f.reportValidity())return;const t=document.getElementById('ct');t.innerHTML='';
+[['法人名','corp'],['ご担当者名','tanto'],['メールアドレス','email'],['ご用件','naiyou']].forEach(([l,n])=>{const tr=document.createElement('tr');tr.innerHTML='<th></th><td></td>';tr.children[0].textContent=l;tr.children[1].textContent=f[n].value;t.appendChild(tr)});
+document.getElementById('input').style.display='none';document.getElementById('confirm').style.display='block';};
+document.getElementById('back').onclick=()=>{document.getElementById('input').style.display='block';document.getElementById('confirm').style.display='none';};
+</script></main><footer>© デモ介護サービス株式会社（架空）</footer></body></html>
