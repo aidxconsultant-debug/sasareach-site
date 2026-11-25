@@ -289,6 +289,9 @@ main{background:#fff;border-left:2px solid var(--ink);border-right:2px solid var
 .cta .btn b{font-size:17px}
 .cta .fine{font-size:11px}
 /* フッター */
+#s-mode .card.win{cursor:pointer;transition:transform .15s,box-shadow .15s}
+#s-mode .card.win:hover{transform:translateY(-2px)}
+.win-go{display:block;margin-top:12px;padding:10px 14px;background:var(--red);color:#fff;border-radius:999px;text-align:center;font-weight:800;font-size:14px;text-decoration:none}
 .db-line{margin:4px 0 0;padding:10px 14px;background:var(--ink);color:#fff;border-radius:12px;text-align:center;font-size:14px;font-weight:700;line-height:1.6}
 .db-line b{color:var(--yellow);font-size:20px}
 .assure{list-style:none;margin:2px 0 0;padding:12px 16px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:12px;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;text-align:left}
@@ -414,6 +417,7 @@ footer .op a{color:var(--yellow)}
       <div class="ais" aria-hidden="true"><div class="ai">AI-1<div class="bar"><i></i></div></div><div class="ai">AI-2<div class="bar"><i></i></div></div><div class="ai">AI-3<div class="bar"><i></i></div></div></div>
       <p class="muted">問い合わせフォームを探す → 入力する → 送信する → 完了画面を確かめて記録する。ここまでを、人の手を使わずに進めます。1台のPCの中でAIが3台同時に動くので、1台ずつ送るより約3倍の速さです。夜も休みの日も送り続けます。</p>
       <p class="tip">「営業お断り」と書いてある会社や、フォームのない会社は自動で飛ばします。</p>
+      <a class="win-go" href="#contact">この全自動モードを1ヶ月無料で試す →</a>
     </div>
   </div>
   <div class="down" aria-hidden="true">▼</div>
@@ -425,6 +429,7 @@ footer .op a{color:var(--yellow)}
       <img src="img/form-demo.webp" alt="確認モードの画面（実際の送信テストのもの）" loading="lazy">
       <p class="small">画面は実際の送信テストのものです（会社名・名前などはぼかしています）。</p>
       <p class="muted">「私はロボットではありません」のようなロボット確認があるフォームや、形が特殊なフォームは、全自動では送りません。確認モードでは、入力まではAIが済ませて、最後のチェックと送信ボタンだけを人が押します。ロボット確認も人がその場でチェックを入れるので、全自動では届かない会社にも送れます。</p>
+      <a class="win-go" href="#contact">確認モードもあわせて1ヶ月無料で試す →</a>
     </div>
   </div>
   <div class="chain rise"><div class="c1">① 全自動で一気に送る</div><div class="c2">② 送れなかった会社だけ確認モードで仕上げる</div><div class="c3">送れる会社には、ほぼ全部届く</div></div>
@@ -619,6 +624,14 @@ document.addEventListener('click', function (e) {
   var where = a.closest('#spbar') ? 'スマホ下の固定ボタン' : a.closest('.site-header') ? '上のバー' : a.closest('aside') ? '左の列' : ((a.closest('section') || {}).id || 'その他');
   gtag('event', 'cta_click', { link_location: where, transport_type: 'beacon' });
 }, true);
+// 「2つの送り方」のカードは、どこを押しても申し込みの場所へ（いちばん押されているため）
+[].forEach.call(document.querySelectorAll('#s-mode .card.win'), function (card) {
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    var go = card.querySelector('.win-go');
+    if (go) go.click();
+  });
+});
 // 申し込みの場所（一番下）が画面に出たら1回だけ数える
 (function () {
   var c = document.getElementById('contact');
