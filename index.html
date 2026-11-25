@@ -289,6 +289,8 @@ main{background:#fff;border-left:2px solid var(--ink);border-right:2px solid var
 .cta .btn b{font-size:17px}
 .cta .fine{font-size:11px}
 /* フッター */
+.assure{list-style:none;margin:2px 0 0;padding:12px 16px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:12px;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;text-align:left}
+.assure li::before{content:"✓ ";color:var(--red);font-weight:900}
 footer{padding:24px 20px 28px;background:var(--ink);color:#fff;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
 footer .op{font-size:11px;line-height:1.7;color:var(--line)}
 footer .op b{font-size:12px;color:#fff}
@@ -346,19 +348,19 @@ footer .op a{color:var(--yellow)}
     <div class="term" aria-hidden="true">
       <div class="dots"><i></i><i></i><i></i></div>
       <div><span class="y">$</span> <span class="typing">sasareach --start</span><span class="caret"></span></div>
-      <div class="log l1">送り先を探しています… <span class="y">93社</span></div>
+      <div class="log l1">送り先を探しています… <span class="y">1,943社</span></div>
       <div class="log l2">フォームに入力しています…</div>
-      <div class="log l3"><span class="y">&gt;</span> 64社に送信完了</div>
-      <div class="log l4"><span class="y">&gt;</span> 28社で到達を確認</div>
+      <div class="log l3"><span class="y">&gt;</span> 1,168社に送信完了</div>
+      <div class="log l4"><span class="y">&gt;</span> 503社で到達を確認</div>
     </div>
     <img class="panda bob" src="img/panda.webp" width="320" height="312" alt="" fetchpriority="high">
   </div>
   <div class="stats">
-    <div class="stat"><b><span class="count" data-to="64">64</span><small>社</small></b><span>に送信完了</span></div>
-    <div class="stat"><b>約<span class="count" data-to="7">7</span><small>割</small></b><span>の送信成功率</span></div>
-    <div class="stat"><b><span class="count" data-to="28">28</span><small>社</small></b><span>で到達を確認</span></div>
+    <div class="stat"><b><span class="count" data-to="1168">1,168</span><small>社</small></b><span>に送信完了</span></div>
+    <div class="stat"><b><span class="count" data-to="94">94</span><small>%</small></b><span>フォームがある会社へ</span></div>
+    <div class="stat"><b><span class="count" data-to="503">503</span><small>社</small></b><span>で到達を確認</span></div>
   </div>
-  <p class="small" style="text-align:center">東京の運送会社93社への送信テストより（2026年10月）</p>
+  <p class="small" style="text-align:center">東京23区の運送会社1,943社への送信テストより（2026年10月）</p>
   <a class="btn pulse" href="#contact"><b>1ヶ月 無料で試してみる</b><small>申込書を交わすまで、料金は一切かかりません</small></a>
 </section>
 
@@ -380,21 +382,22 @@ footer .op a{color:var(--yellow)}
   <p class="eyebrow">— WHAT IS —</p>
   <h2 id="about-h" class="rise">ササリーチとは</h2>
   <p class="lead-box rise">営業先の問い合わせフォームに、<br>お客様の営業文を自動で送ります</p>
-  <div class="card step lift rise"><div class="no">1</div><div><h3>探す</h3><p>業種と地域から、送り先の会社とホームページを集めます</p></div></div>
+  <div class="card step lift rise"><div class="no">1</div><div><h3>探す</h3><p>業種と地域から、送り先の会社とホームページを集めます。国の法人データ（gBizINFO・500万社超）から、国の認定や補助金を受けた会社などに絞りこむこともできます</p></div></div>
   <div class="card step lift rise"><div class="no">2</div><div><h3>送る</h3><p>問い合わせフォームを見つけて、名前・連絡先・本文を入れて送ります</p></div></div>
   <div class="card step lift rise"><div class="no">3</div><div><h3>記録する</h3><p>送れた会社、送れなかった理由、届いた返信をシートに残します</p></div></div>
 </section>
 
 <section class="sec dark" id="s-result" aria-labelledby="res-h">
   <p class="eyebrow">— RESULT —</p>
-  <h2 id="res-h" class="rise">試した会社の<span class="big">約7割</span>に、<br>送信できています</h2>
+  <h2 id="res-h" class="rise">フォームがある会社の<br><span class="big">94%</span>に送信できています</h2>
   <div class="report rise">
     <div class="fn">send_report.csv</div>
-    <div class="bar-row"><div class="lab"><span>送信を試した会社</span><span>93社</span></div><div class="bar"><i style="--w:100%;background:var(--navy)"></i></div></div>
-    <div class="bar-row"><div class="lab"><span>送信完了（約7割）</span><span>64社</span></div><div class="bar"><i style="--w:69%;background:var(--red)"></i></div></div>
-    <div class="bar-row"><div class="lab"><span>自動返信で到達を確認</span><span>28社</span></div><div class="bar"><i style="--w:30%;background:var(--orange)"></i></div></div>
+    <div class="bar-row"><div class="lab"><span>送信を試した会社</span><span>1,943社</span></div><div class="bar"><i style="--w:100%;background:var(--navy)"></i></div></div>
+    <div class="bar-row"><div class="lab"><span>フォームがあって、送ってよい会社</span><span>1,241社</span></div><div class="bar"><i style="--w:64%;background:var(--navy)"></i></div></div>
+    <div class="bar-row"><div class="lab"><span>送信完了（その94%）</span><span>1,168社</span></div><div class="bar"><i style="--w:60%;background:var(--red)"></i></div></div>
+    <div class="bar-row"><div class="lab"><span>自動返信で到達を確認</span><span>503社</span></div><div class="bar"><i style="--w:26%;background:var(--orange)"></i></div></div>
   </div>
-  <p class="note">東京の運送会社への送信テスト（約2週間）。送れなかった会社の多くは、フォームがない・営業お断り・ロボット確認ありの会社です。</p>
+  <p class="note">東京23区の運送会社への送信テスト（2026年10月）。送れなかった会社の多くは、フォームがない・ホームページが開けない・営業お断りの会社です。「営業お断り」とロボット確認がある会社には、わざと送っていません。<a href="https://note.com/aidx_consultant/n/n8b4ca10f121c" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">くわしい数字はnoteで公開しています</a></p>
 </section>
 
 <section class="sec grid-bg" id="s-mode" aria-labelledby="mode-h">
@@ -517,6 +520,11 @@ footer .op a{color:var(--yellow)}
   <div class="free pulse"><span>1ヶ月</span><b>無料</b></div>
   <p style="font-size:13px;line-height:1.7">リスト作りとPCへの設定は、こちらで行います。<br>お客様は、ボタンを押して返信を見るだけ</p>
   <a class="btn" href="https://calendar.app.google/Z2iBAVEG55RNhJNd9" target="_blank" rel="noopener"><b>無料トライアルの面談を予約する</b></a>
+  <ul class="assure">
+    <li>30分のオンライン面談（Google Meet）</li>
+    <li>カメラはオフでも大丈夫です</li>
+    <li>その場で契約をすすめることはありません</li>
+  </ul>
   <p class="fine">カレンダーから、空いている日時を選ぶだけで予約できます<br>申込書を交わすまで、料金は一切かかりません</p>
 </section>
 
@@ -567,7 +575,7 @@ footer .op a{color:var(--yellow)}
   if (!reduce) {
     [].forEach.call(document.querySelectorAll('.count'), function (el) {
       var to = +el.getAttribute('data-to'), t0 = null; el.textContent = '0';
-      function step(t) { t0 = t0 || t; var k = Math.min((t - t0) / 1200, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }
+      function step(t) { t0 = t0 || t; var k = Math.min((t - t0) / 1200, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))).toLocaleString('ja-JP'); if (k < 1) requestAnimationFrame(step); }
       setTimeout(function () { requestAnimationFrame(step); }, 300);
     });
   }
@@ -601,6 +609,22 @@ document.addEventListener('click', function (e) {
   var sec = a.closest('section');
   gtag('event', 'generate_lead', { method: 'calendar', link_location: (sec && (sec.getAttribute('aria-labelledby') || sec.className)) || 'header', transport_type: 'beacon' });
 }, true);
+// 「無料で試す」など、一番下の申し込みへ移るボタンが押されたら数える（どのボタンか）
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#contact"]');
+  if (!a || typeof gtag !== 'function') return;
+  var where = a.closest('#spbar') ? 'スマホ下の固定ボタン' : a.closest('.site-header') ? '上のバー' : a.closest('aside') ? '左の列' : ((a.closest('section') || {}).id || 'その他');
+  gtag('event', 'cta_click', { link_location: where, transport_type: 'beacon' });
+}, true);
+// 申し込みの場所（一番下）が画面に出たら1回だけ数える
+(function () {
+  var c = document.getElementById('contact');
+  if (!c || !('IntersectionObserver' in window)) return;
+  var o = new IntersectionObserver(function (es) {
+    if (es.some(function (x) { return x.isIntersecting; }) && typeof gtag === 'function') { gtag('event', 'cta_view'); o.disconnect(); }
+  }, { threshold: 0.4 });
+  o.observe(c);
+})();
 // noteの記事・SNSへのリンクが押されたら、行き先ごとに数える
 document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('a[href^="http"]');
