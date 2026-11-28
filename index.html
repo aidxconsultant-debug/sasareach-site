@@ -399,6 +399,11 @@ main{border:0;max-width:none;overflow:visible}
 #s-faq>.eyebrow,#s-faq>h2{grid-column:1/-1}
 /* コラム：3列 */
 .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.col{display:flex}
+.col a{flex:1 1 auto;display:flex;flex-direction:column}
+.col a>span{flex:1 1 auto}
+.c-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:3em}
+.c-desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 /* 最後の申込 */
 .cta{padding-top:64px;padding-bottom:64px}
 .cta h2{font-size:40px}
