@@ -310,6 +310,107 @@ footer .op a{color:var(--yellow)}
 .rise{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .rise.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rise{opacity:1;transform:none}.typing{width:auto}.log{opacity:1;transform:none}.bar i{width:var(--w)}}
+/* ===== PC（横幅1024px以上）：PC用のレイアウト（11/28）。スマホは上のまま ===== */
+.pc-only{display:none!important}
+.head-r{display:flex;gap:8px;align-items:center}
+@media (max-width:1023px){.hero-l,.hero-r{display:contents}}
+@media (min-width:1024px){
+.pc-only{display:revert!important}.sp-only{display:none!important}
+.layout{display:block}.side{display:none}
+main{border:0;max-width:none;overflow:visible}
+.ticker{display:none}
+.site-header{padding:14px max(32px,calc((100% - 1160px)/2));gap:24px}
+.site-header .brand{font-size:24px}
+.head-nav{display:flex!important;gap:22px;margin-left:auto}
+.head-nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+.head-nav a:hover{color:var(--yellow)}
+.head-btn,.head-btn2{padding:10px 20px;font-size:14px}
+.head-btn2{border:2px solid #fff;border-radius:999px;color:#fff;text-decoration:none;font-weight:700}
+.sec{padding:72px max(40px,calc((100% - 1120px)/2));gap:22px}
+.sec h2{font-size:34px}
+.sec h2 br{display:none}
+#flow-h>br:nth-of-type(2){display:inline}
+.eyebrow{font-size:14px}
+/* 最初の画面：左に「何を・だれに・無料・予約」、右に実績 */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:56px;align-items:center;padding-top:32px;padding-bottom:44px}
+.hero-l,.hero-r{display:flex;flex-direction:column;gap:16px}
+.hero-q{align-self:flex-start;padding:6px 14px;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;font-size:16px;font-weight:900}
+.hero h1{font-size:48px;line-height:1.25}
+.hero h1 .kicker{margin-bottom:12px;font-size:16px;text-align:left}
+.hero .kicker{text-align:left}
+.hero-pc{display:flex!important;flex-direction:column;gap:18px}
+.hero-lead{font-size:17px;font-weight:700;line-height:1.7}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{padding:6px 14px;background:#fff;border:2px solid var(--ink);border-radius:999px;font-size:15px;font-weight:900}
+.chips li::before{content:"✓ ";color:var(--red)}
+.hero-btns{display:flex;gap:14px;align-items:stretch}
+.hero-btns .btn{flex:1 1 0;justify-content:center}
+.hero-btns .btn b{font-size:20px}
+.hero-btns .btn.white{flex:0 0 auto;padding:14px 22px;font-size:16px}
+.term{font-size:14px;padding:16px 18px}
+.hero .panda{width:140px}
+.stat b{font-size:36px}.stat>span{font-size:13px}
+.db-line{font-size:16px}
+/* お悩み：3つ横並び */
+#s-worry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#s-worry>h2,#s-worry>.down,#s-worry>.answer{grid-column:1/-1}
+.bubble,.bubble.r{margin:0;font-size:17px;padding:18px 20px}
+.answer{font-size:28px}.answer br{display:none}
+/* ササリーチとは：3枚横並び */
+#s-about{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#s-about>.eyebrow,#s-about>h2,#s-about>.lead-box{grid-column:1/-1}
+.lead-box{font-size:18px;justify-self:center}.lead-box br{display:none}
+.step{flex-direction:column;align-items:flex-start;padding:22px}
+.step h3{font-size:22px}.step p{font-size:14px}
+/* 実績 */
+.report{width:100%;max-width:860px;align-self:center;padding:20px 24px 24px}
+.bar-row .lab{font-size:15px}
+#s-result .note{max-width:860px;align-self:center;font-size:13px}
+/* 2つの送り方：2枚横並び */
+#s-mode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}
+#s-mode>.eyebrow,#s-mode>h2,#s-mode>.chain{grid-column:1/-1}
+#s-mode>.down{display:none}
+.win-body{padding:20px}
+.win-body h3{font-size:20px}
+.muted{font-size:14px}
+.chain{flex-direction:row}.chain div{flex:1 1 0;text-align:center;font-size:15px;padding:14px}
+/* 1ヶ月の流れ：3つずつ2段 */
+#s-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#s-flow>.eyebrow,#s-flow>h2{grid-column:1/-1}
+.flow .line{display:none}
+.flow h3{font-size:17px}.flow p{font-size:14px}
+/* 8つ */
+.sheet{padding:20px 24px}
+.sheet ol{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.sheet li{font-size:14px}
+/* ルール：左に決められること、右に4つのルール */
+#s-rule{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
+#s-rule>.eyebrow,#s-rule>h2{grid-column:1/-1}
+#s-rule>.can{grid-row:span 2;align-self:stretch}
+.can h3{font-size:17px}.can ul{font-size:15px}
+.rule p{font-size:16px}
+/* 料金：左に流れ、右に金額 */
+#s-price{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center}
+#s-price>.eyebrow,#s-price>h2,#s-price>.lead{grid-column:1/-1}
+.steps4 li{font-size:15px;padding:12px 16px}
+.price{padding:28px 24px}.price .yen{font-size:56px}
+/* よくある質問：2列 */
+#s-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+#s-faq>.eyebrow,#s-faq>h2{grid-column:1/-1}
+/* コラム：3列 */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+/* 最後の申込 */
+.cta{padding-top:64px;padding-bottom:64px}
+.cta h2{font-size:40px}
+.cta .btn,.assure{max-width:520px}
+}
+@media (min-width:1024px) and (max-width:1279px){
+.hero{column-gap:32px}.hero h1{font-size:42px}
+.hero-btns{flex-direction:column}.hero-btns .btn.white{padding:12px}
+.chips li{font-size:13px;padding:5px 10px}
+.stat b{font-size:28px}.stat>span{font-size:11px}
+.head-nav{gap:14px}.head-nav a{font-size:13px}
+}
 </style>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
@@ -338,7 +439,8 @@ footer .op a{color:var(--yellow)}
 
 <header class="site-header">
   <a class="brand" href="#top">ササリーチ<small>SasaReach</small></a>
-  <a class="head-btn" href="#contact">無料で試す</a>
+  <nav class="head-nav pc-only" aria-label="目次"><a href="#s-about">ササリーチとは</a><a href="#s-result">実績</a><a href="#s-mode">送り方</a><a href="#s-flow">1ヶ月の流れ</a><a href="#s-price">料金</a><a href="#s-faq">よくある質問</a></nav>
+  <div class="head-r"><a class="head-btn2 pc-only" href="https://calendar.app.google/Z2iBAVEG55RNhJNd9" target="_blank" rel="noopener">面談を予約</a><a class="head-btn" href="#contact">無料で試す</a></div>
 </header>
 
 <div class="ticker" aria-hidden="true"><div class="track">
@@ -347,8 +449,20 @@ footer .op a{color:var(--yellow)}
 </div></div>
 
 <section class="sec hero grid-bg" id="s-top" aria-labelledby="hero-h">
-  <h1 id="hero-h"><span class="kicker">＼ 中小企業のための、フォーム営業代行 ／</span>営業文は、<br><span class="hl">ぼくが届ける</span>。</h1>
-  <p class="sub">あなたはボタンを押すだけ。</p>
+  <div class="hero-l">
+  <p class="pc-only hero-q">無料で商談を獲得しませんか？</p>
+  <h1 id="hero-h"><span class="kicker">＼ 中小企業のための、フォーム営業代行 ／</span><span class="sp-only">営業文は、<br><span class="hl">ぼくが届ける</span>。</span><span class="pc-only">1ヶ月無料で、<br>新規開拓を<br><span class="hl">まるごとお任せ</span><br>ください。</span></h1>
+  <p class="sub sp-only">あなたはボタンを押すだけ。</p>
+  <div class="pc-only hero-pc">
+    <p class="hero-lead">問い合わせフォームへの営業を、送り先リスト作りから送信・記録まで代行します。<br>個人で本気で取り組んでいます。</p>
+    <ul class="chips"><li>先着3社</li><li>申込書を交わすまで0円</li><li>いつでもやめられる</li></ul>
+    <div class="hero-btns">
+      <a class="btn pulse" href="#contact" data-loc="PCの最初の画面"><b>1ヶ月 無料で試してみる</b><small>申込書を交わすまで、料金は一切かかりません</small></a>
+      <a class="btn white" href="https://calendar.app.google/Z2iBAVEG55RNhJNd9" target="_blank" rel="noopener" data-loc="PCの最初の画面">面談の日時を選ぶ（30分）</a>
+    </div>
+  </div>
+  </div>
+  <div class="hero-r">
   <div class="hero-row">
     <div class="term" aria-hidden="true">
       <div class="dots"><i></i><i></i><i></i></div>
@@ -367,7 +481,8 @@ footer .op a{color:var(--yellow)}
   </div>
   <p class="small" style="text-align:center">東京23区の運送会社1,943社への送信テストより（2026年10月）</p>
   <p class="db-line"><b>500万社超</b>の国の法人データから、<br>最適な送り先リストを絞りこめます</p>
-  <a class="btn pulse" href="#contact"><b>1ヶ月 無料で試してみる</b><small>申込書を交わすまで、料金は一切かかりません</small></a>
+  </div>
+  <a class="btn pulse sp-only" href="#contact"><b>1ヶ月 無料で試してみる</b><small>申込書を交わすまで、料金は一切かかりません</small></a>
 </section>
 
 <section class="sec beige" id="s-worry" aria-labelledby="worry-h">
@@ -615,13 +730,13 @@ document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('a[href*="calendar.app.google"]');
   if (!a || typeof gtag !== 'function') return;
   var sec = a.closest('section');
-  gtag('event', 'generate_lead', { method: 'calendar', link_location: (sec && (sec.getAttribute('aria-labelledby') || sec.className)) || 'header', transport_type: 'beacon' });
+  gtag('event', 'generate_lead', { method: 'calendar', link_location: a.getAttribute('data-loc') || a.closest('.site-header') && '上のバー' || (sec && (sec.getAttribute('aria-labelledby') || sec.className)) || 'header', transport_type: 'beacon' });
 }, true);
 // 「無料で試す」など、一番下の申し込みへ移るボタンが押されたら数える（どのボタンか）
 document.addEventListener('click', function (e) {
   var a = e.target.closest && e.target.closest('a[href="#contact"]');
   if (!a || typeof gtag !== 'function') return;
-  var where = a.closest('#spbar') ? 'スマホ下の固定ボタン' : a.closest('.site-header') ? '上のバー' : a.closest('aside') ? '左の列' : ((a.closest('section') || {}).id || 'その他');
+  var where = a.getAttribute('data-loc') ? a.getAttribute('data-loc') : a.closest('#spbar') ? 'スマホ下の固定ボタン' : a.closest('.site-header') ? '上のバー' : a.closest('aside') ? '左の列' : ((a.closest('section') || {}).id || 'その他');
   gtag('event', 'cta_click', { link_location: where, transport_type: 'beacon' });
 }, true);
 // 「2つの送り方」のカードは、どこを押しても申し込みの場所へ（いちばん押されているため）
